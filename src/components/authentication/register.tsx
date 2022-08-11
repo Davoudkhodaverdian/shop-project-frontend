@@ -1,35 +1,10 @@
 
 
-import { FormikBag, useFormik } from 'formik'
+import { useFormik } from 'formik'
 import type { NextPage } from 'next'
-import React, { useState } from 'react'
+import formData from './formData'
 
 const Register: NextPage = () => {
-
-    let formData = [
-
-        {
-            descreption: "نام",
-            name: "name",
-            idHtml: "name",
-            type: "text",
-            id: 1
-        },
-        {
-            descreption: "ایمیل",
-            name: "email",
-            idHtml: "email-address",
-            type: "email",
-            id: 2
-        },
-        {
-            descreption: "رمز عبور",
-            name: "password",
-            idHtml: "password",
-            type: "password",
-            id: 3
-        }
-    ]
 
     const formik = useFormik({
         initialValues: {
@@ -41,11 +16,6 @@ const Register: NextPage = () => {
             console.log(value);
         }
     })
-
-
-
-
-
 
     return (
 
