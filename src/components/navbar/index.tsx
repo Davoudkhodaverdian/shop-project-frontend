@@ -9,7 +9,7 @@ const Navbar: NextPage = () => {
     const [show, setShow] = useState<boolean>(false)
 
     return (
-        <div className=' p-3 bg-gray-100 dark:bg-slate-700 shadow dark:text-white shadow'>
+        <div className=' p-3 bg-gray-100 dark:bg-slate-700 dark:text-white shadow'>
             <div className='flex justify-between'>
                 <div className=''>
                     <ul className='flex'>

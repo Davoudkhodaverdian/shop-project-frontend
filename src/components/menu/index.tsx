@@ -17,9 +17,9 @@ const Button: NextPage = () => {
                 </div >
                   <Search/>
             </div>
-            <div className='flex items-center cursor-pointer'>
+            
                 <ShoppingBag/>
-            </div>
+            
 
         </div>
     );
