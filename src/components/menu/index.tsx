@@ -15,12 +15,9 @@ const Button: NextPage = () => {
                         منوی محصولات
                     </button>
                 </div >
-                  <Search/>
+                <Search />
             </div>
-            
-                <ShoppingBag/>
-            
-
+            <ShoppingBag />
         </div>
     );
 }

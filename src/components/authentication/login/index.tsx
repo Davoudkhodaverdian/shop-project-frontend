@@ -13,7 +13,7 @@ const Register: NextPage = () => {
                         <div className='flex  items-center'><img src="/images/logo.svg" width={50} alt="logo" /></div>
                         <div className='flex  items-center'><img src="/images/nextLogo.svg" width={50} alt="logo" /></div>
                     </div>
-                    <h2 className="mt-6 text-3xl font-extrabold text-gray-900 text-right">ثبت نام</h2>
+                    <h2 className="mt-6 text-3xl font-extrabold text-gray-900 text-right">ورود</h2>
                     <Form/>
                 </div>
                 <div className='max-w-[500px] md:flex flex-col justify-center items-center hidden p-3'>

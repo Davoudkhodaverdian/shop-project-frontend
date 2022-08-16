@@ -1,10 +1,10 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import Navbar from '../components/navbar'
-import Menu from '../components/menu'
-import Slider from '../components/slider'
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import Image from 'next/image';
+import styles from '../styles/Home.module.css';
+import Navbar from '../components/navbar';
+import Menu from '../components/menu';
+import Slider from '../components/slider';
 import { motion } from 'framer-motion';
 
 const Home: NextPage = () => {

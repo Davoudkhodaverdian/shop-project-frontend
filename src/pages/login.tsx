@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Register from '../components/authentication/register'
+import Login from '../components/authentication/login'
 import { motion } from 'framer-motion';
 
-const RegisterPage: NextPage = () => {
+const LoginPage: NextPage = () => {
   return (
     <div dir='rtl' >
       <Head>
@@ -16,15 +16,14 @@ const RegisterPage: NextPage = () => {
         animate={{
           opacity: 1, y: 0, transition: {
             duration: 0.8,
-          
           },
         }}
       >
-        <Register />
+        <Login />
       </motion.div>
 
     </div>
   )
 }
 
-export default RegisterPage
+export default LoginPage
