@@ -1,17 +1,20 @@
 import { NextPage } from "next";
 import formData from './formData'
 import { Formik, Form } from 'formik'
-// import LoginErrors from "../../models/loginErrors";
+import { useCookies } from 'react-cookie';
 import Login from "../../models/login";
 import TextItem from "./textItem";
 import Link from 'next/link';
 import * as yup from 'yup';
+import callApi from "../../../helpers/callApi";
+import ValidationError from "../../../app/exceptions/validationError";
+
 const FormComponent: NextPage = () => {
 
+    const [cookies, setCookie] = useCookies(['shop-token']);
+
     let initialValuesFormik: Login = { email: "", password: "" };
-    const submitHandler = (values: Login) => {
-        console.log('onSubmit: ', values);
-    }
+
     let registerFormSchema = yup.object().shape({
         email: yup.string().required().email(),
         password: yup.string().required().min(3)
@@ -21,8 +24,30 @@ const FormComponent: NextPage = () => {
         <Formik
             initialValues={initialValuesFormik}
             validationSchema={registerFormSchema}
-            // validate={validateHandler}
-            onSubmit={submitHandler}
+            onSubmit={
+                async (values: Login, { setFieldError}) => {
+
+                    try {
+                        const res = await callApi().post('/auth/login', values);
+            
+            
+                        if (res.status === 200) {
+                            console.log(res)
+                            setCookie('shop-token', res.data.token, { 'domain': 'localhost', 'path': '/' })
+                        }
+                    } catch (error) {
+            
+                        if (error instanceof ValidationError) {
+                            
+                            console.log(error.messages);
+                            Object.entries(error.messages).forEach(([key,value])=>{setFieldError(key,value as string);})
+                            
+                        }
+            
+                    }
+            
+                }
+            }
         >
             <Form>
                 {formData.map(item => (<TextItem key={item.id} item={item} />))}

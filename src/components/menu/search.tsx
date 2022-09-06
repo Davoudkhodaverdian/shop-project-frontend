@@ -5,7 +5,6 @@ import React from 'react';
 
 const Search: NextPage = () => {
 
-
     const submitHandler : React.FormEventHandler = (event : React.FormEvent)=>{
         event.preventDefault();
     }

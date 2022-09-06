@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import '../components/helpers/i18n'
-import { store } from './../store';
+import '../helpers/i18n'
+import { store } from './../app/store';
 import { Provider } from 'react-redux';
 import { setLocale } from 'yup';
 import { useTranslation } from 'react-i18next';

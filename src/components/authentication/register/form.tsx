@@ -1,46 +1,12 @@
 import { NextPage } from "next";
-import formData from './formData'
-import { Formik, Form } from 'formik'
-import Register from "../../models/register";
-import TextItem from "./textItem";
-import Link from 'next/link';
-import * as yup from 'yup';
+import InnerForm from './innerForm'
+
 
 const FormComponent: NextPage = () => {
 
-    let initialValuesFormik: Register = { email: "", name: "", password: "" };
-    const submitHandler = (values: Register) => {
-        console.log('onSubmit: ', values);
-    }
-
-    let registerFormSchema = yup.object().shape({
-        name: yup.string().required(),
-        email: yup.string().required().email(),
-        password: yup.string().required().min(3)
-    })
 
     return (
-        <Formik
-            initialValues={initialValuesFormik}
-            validationSchema={registerFormSchema}
-            onSubmit={submitHandler}
-        >
-            <Form>
-                {formData.map(item => (<TextItem key={item.id} item={item} />))}
-                <Link href="/">
-                    <a>
-                        <button type="submit" name="submit"
-                            className="px-3 rounded text-white text-center bg-red-500 font-bold drop-shadow hover:bg-red-600 active:bg-red-700 focus:ring focus:ring-red-300  mx-1">
-                            بازگشت
-                        </button>
-                    </a>
-                </Link>
-                <button type="submit" name="submit"
-                    className="px-3 rounded text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300  mx-1">
-                    ثبت نام
-                </button>
-            </Form>
-        </Formik>
+       <InnerForm/>
     )
 }
 

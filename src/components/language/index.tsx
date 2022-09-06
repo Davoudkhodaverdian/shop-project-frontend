@@ -1,8 +1,8 @@
 
 
 import { useDispatch, useSelector } from 'react-redux'
-import { setLanguage } from '../../store/languageSlice'
-import { RootState } from '../../store'
+import { setLanguage } from '../../app/store/languageSlice'
+import { RootState } from '../../app/store'
 import { useTranslation } from 'react-i18next';
 
 export default function Theme() {

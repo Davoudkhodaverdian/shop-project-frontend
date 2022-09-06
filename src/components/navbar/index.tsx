@@ -15,8 +15,8 @@ const Navbar: NextPage = () => {
                 <div className=''>
                     <ul className='flex'>
                         <li className='p-1 cursor-pointer'>فروشگاه زنجیره ای</li>
-                        <Link href="/register"><a><li className='p-1 cursor-pointer'>{t('register')}</li></a></Link>
-                        <Link href="/login"><a><li className='p-1 cursor-pointer'>{t('login')}</li></a></Link>
+                        <Link href="auth/register"><a><li className='p-1 cursor-pointer'>{t('register')}</li></a></Link>
+                        <Link href="auth/login"><a><li className='p-1 cursor-pointer'>{t('login')}</li></a></Link>
                         <li className='cursor-pointer flex justify-center items-center'><Language/></li>
                     </ul>
                 </div>

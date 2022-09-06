@@ -9,7 +9,7 @@ const currentPersonSlice = createSlice({
     name: "person",
     initialState: initialState,
     reducers: {
-        setCurrentPersonSlice: (state, action: PayloadAction<Person>) => {
+        setCurrentPerson: (state, action: PayloadAction<Person>) => {
             state = action.payload;
             return state;
         },
@@ -17,6 +17,6 @@ const currentPersonSlice = createSlice({
     }
 })
 
-export const { setCurrentPersonSlice } = currentPersonSlice.actions;
+export const { setCurrentPerson } = currentPersonSlice.actions;
 
 export default currentPersonSlice.reducer;

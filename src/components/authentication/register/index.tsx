@@ -17,7 +17,7 @@ const Register: NextPage = () => {
                     <Form/>
                 </div>
                 <div className='max-w-[500px] md:flex flex-col justify-center items-center hidden p-3'>
-                    <img src='./images/undraw_business_shop_re_ruf4.svg' />
+                    <img src="/images/undraw_business_shop_re_ruf4.svg"  />
                 </div>
             </div>
         </div>
