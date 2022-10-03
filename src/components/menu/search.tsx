@@ -5,22 +5,34 @@ import React from 'react';
 
 const Search: NextPage = () => {
 
-    const submitHandler : React.FormEventHandler = (event : React.FormEvent)=>{
+    const submitHandler: React.FormEventHandler = (event: React.FormEvent) => {
         event.preventDefault();
     }
 
     return (
-        <form  onSubmit={submitHandler}>
+        <form className="" onSubmit={submitHandler}>
             <div className='mx-1 flex'>
-            <input type="text" name="search" id="search" placeholder="جستجو ..."
-                className="bg-white w-full rounded-r-sm border-gray-300 border border-l-0 shadow pr-3 pl-10 py-2 text-right focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-            </input>
-            <button className='bg-slate-500 h-[42px] rounded-l-sm  px-1 focus:ring-1 focus:ring-slate-500 focus:border-slate-500' 
-                type='submit'  >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-            </button>
+                
+            <div className="relative">
+                <input className="appearance-none rounded relative block px-[34px] py-2 my-1 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-violet-500 focus:border-violet-500"
+                    type="search" placeholder="جستجو ..." required
+                />
+                    <svg 
+                        aria-hidden="true"
+                        className="w-5 h-5 text-gray-500 dark:text-gray-400 absolute top-[15px] right-[7px]"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                <button type="submit"
+                    className="absolute left-[3px] bottom-[8.9px] px-4 py-1 shadow-2xl rounded bg-purple-600 text-white hover:bg-purple-700 active:bg-purple-800 ">
+                    جستجو
+                </button>
+            </div>
+
             </div>
         </form>
     );

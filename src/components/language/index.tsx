@@ -1,14 +1,14 @@
 
 
-import { useDispatch, useSelector } from 'react-redux'
+
 import { setLanguage } from '../../app/store/languageSlice'
 import { RootState } from '../../app/store'
 import { useTranslation } from 'react-i18next';
-
+import { useAppSelector, useAppDispatch } from '../../app/hooks'
 export default function Theme() {
-
-    const language = useSelector((state: RootState) => state.language);
-    const dispatch = useDispatch();
+    
+    const language = useAppSelector((state: RootState) => state.language);
+    const dispatch = useAppDispatch()
     const { i18n } = useTranslation();
 
     const languageHandler = () => {

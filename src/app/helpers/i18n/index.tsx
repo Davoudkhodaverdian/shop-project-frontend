@@ -17,7 +17,10 @@ let resources = {
         "min": "{{ field }} must be at least {{ min }} characters",
       },
       "register": "register",
-      "login": "login"
+      "login": "login",
+      "profile": "profile",
+      "exit": "exit",
+      "main page": "main page",
     }
   },
   fa: {
@@ -34,7 +37,10 @@ let resources = {
         "min": "{{ field }} باید حداقل {{ min }} کاراکتر باشد",
       },
       "register": "ثبت نام",
-      "login": "ورود"
+      "login": "ورود",
+      "profile": "پروفایل",
+      "exit": "خروج",
+      "main page": "صفحه اصلی",
     }
   },
 }

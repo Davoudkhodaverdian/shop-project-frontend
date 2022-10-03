@@ -1,13 +1,9 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
-import Navbar from '../components/navbar';
-import Menu from '../components/menu';
-import Slider from '../components/slider';
+import Home from './../components/home'
 import { motion } from 'framer-motion';
 
-const Home: NextPage = () => {
+const HomePage: NextPage = () => {
   return (
     <div dir='rtl'>
       <Head>
@@ -24,13 +20,10 @@ const Home: NextPage = () => {
           
           }, }}
       >
-      <Navbar />
-      <Menu />
-      <Slider/>
-      <footer className={styles.footer}><Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} /></footer>
+        <Home/>
       </motion.div>
     </div>
   )
 }
 
-export default Home
+export default HomePage

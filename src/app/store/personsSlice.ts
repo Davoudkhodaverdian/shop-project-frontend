@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import Person from '../components/models/person';
+import Person from '../../components/models/person';
 
 const initialState: Person[] = [
-    { name: 'داوود خداوردیان', email: 'davoudkhodaverdian20@gmail.com', password: 'davoudkh2498' }
+    { name: '', email: '' }
 ];
 
 const personsSlice = createSlice({

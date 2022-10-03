@@ -30,7 +30,7 @@ const Slide: NextPage = () => {
                     effect='slide'
                     pagination={{ clickable: true }}
                     scrollbar={{ draggable: true }}
-
+                    
                     
                 >
                     {

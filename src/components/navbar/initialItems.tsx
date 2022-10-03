@@ -2,17 +2,17 @@
 import type { NextPage } from 'next'
 
 
-const Button: NextPage = () => {
+const InitialItems: NextPage = () => {
 
     return (
        
-        <ul className='md:flex '>
-            <li className='p-1 cursor-pointer'>محصولات ویژه</li>
-            <li className='p-1 cursor-pointer'>تخفیف ها</li>
-            <li className='p-1 cursor-pointer'>راهنما</li>
+        <ul className='md:flex relative'>
+            <li className='p-1 cursor-pointer py-3 hover-active-item-navbar'>محصولات ویژه</li>
+            <li className='p-1 cursor-pointer py-3 hover-active-item-navbar'>تخفیف ها</li>
+            <li className='p-1 cursor-pointer py-3 hover-active-item-navbar'>راهنما</li>
         </ul>
        
     );
 }
 
-export default Button;
+export default InitialItems;

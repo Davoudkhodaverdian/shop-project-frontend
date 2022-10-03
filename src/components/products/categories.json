@@ -1,0 +1,17 @@
+[
+    {
+        "CategoryID": 1,
+        "CategoryName": "لپتاپ",
+        "slug":"laptop"
+    },
+    {
+        "CategoryID": 2,
+        "CategoryName": "موبایل",
+        "slug":"mobile"
+    },
+    {
+        "CategoryID": 3,
+        "CategoryName": "تبلت",
+        "slug":"tablet"
+    }
+]

@@ -2,23 +2,21 @@ import { createSlice,PayloadAction } from "@reduxjs/toolkit";
 import AuthState from "../../components/models/authState";
 
 const initialState: AuthState = {
-    verifyToken: undefined
+    verifyToken: ''
 }
 
-
- 
 const authSlice = createSlice({
     name: "auth",
     initialState: initialState,
     reducers: {
-        setAuthSlice: (state, action: PayloadAction<AuthState>) => {
-            state = action.payload;
+        setAuth: (state, action: PayloadAction<string>) => {
+            state.verifyToken = action.payload;
             return state;
         },
 
     }
 })
 
-export const { setAuthSlice } = authSlice.actions;
+export const { setAuth } = authSlice.actions;
 
 export default authSlice.reducer;

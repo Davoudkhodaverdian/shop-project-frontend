@@ -2,12 +2,16 @@ import { configureStore } from '@reduxjs/toolkit'
 import personsReducer from './personsSlice';
 import languageReducer from './languageSlice';
 import currentPersonReducer from './currentPersonSlice';
+import shoppingBagReducer from './shoppingBagSlice';
+import authReducer from './auth';
 
 export const store = configureStore({
   reducer: {
     persons: personsReducer,
     language: languageReducer,
     currentPerson: currentPersonReducer,
+    auth: authReducer,
+    shoppingBag: shoppingBagReducer,
   },
 })
 

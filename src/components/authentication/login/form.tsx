@@ -1,17 +1,23 @@
 import { NextPage } from "next";
 import formData from './formData'
 import { Formik, Form } from 'formik'
-import { useCookies } from 'react-cookie';
 import Login from "../../models/login";
 import TextItem from "./textItem";
 import Link from 'next/link';
 import * as yup from 'yup';
-import callApi from "../../../helpers/callApi";
+import callApi from "../../../app/helpers/callApi";
 import ValidationError from "../../../app/exceptions/validationError";
+import { useAppDispatch } from '../../../app/hooks'
+import { setAuth } from "../../../app/store/auth";
+import { setCurrentPerson } from "../../../app/store/currentPersonSlice";
+import Router from "next/router";
+
 
 const FormComponent: NextPage = () => {
 
-    const [cookies, setCookie] = useCookies(['shop-token']);
+    
+
+    const dispatch = useAppDispatch()
 
     let initialValuesFormik: Login = { email: "", password: "" };
 
@@ -25,27 +31,29 @@ const FormComponent: NextPage = () => {
             initialValues={initialValuesFormik}
             validationSchema={registerFormSchema}
             onSubmit={
-                async (values: Login, { setFieldError}) => {
+                async (values: Login, { setFieldError }) => {
 
                     try {
                         const res = await callApi().post('/auth/login', values);
-            
-            
+
                         if (res.status === 200) {
-                            console.log(res)
-                            setCookie('shop-token', res.data.token, { 'domain': 'localhost', 'path': '/' })
+                            
+                            dispatch(setAuth(res.data.token));
+                            dispatch(setCurrentPerson({name: res.data.name, email: res.data.email}));
+                            Router.push('/');
+                            
                         }
                     } catch (error) {
-            
+
                         if (error instanceof ValidationError) {
-                            
+
                             console.log(error.messages);
-                            Object.entries(error.messages).forEach(([key,value])=>{setFieldError(key,value as string);})
-                            
+                            Object.entries(error.messages).forEach(([key, value]) => { setFieldError(key, value as string); })
+
                         }
-            
+
                     }
-            
+
                 }
             }
         >

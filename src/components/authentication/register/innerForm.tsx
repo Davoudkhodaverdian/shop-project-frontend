@@ -5,7 +5,7 @@ import Register from '../../models/register';
 import formData from './formData';
 import TextItem from './textItem';
 import * as yup from 'yup';
-import callApi from '../../../helpers/callApi';
+import callApi from '../../../app/helpers/callApi';
 import Router from 'next/router'
 import ValidationError from "../../../app/exceptions/validationError";
 
@@ -41,21 +41,6 @@ const registerFormSchema = yup.object().shape({
 
 interface RegisterFormProps { }
 
-const submitHandler = async (values: Register) => {
-
-    try {
-        const res = await callApi().post('/auth/register', values);
-        if (res.status === 201) {
-
-            console.log(res)
-            Router.push('/auth/login');
-
-        }
-    } catch (error) {
-        console.log(error)
-    }
-
-}
 const RegisterForm = withFormik<RegisterFormProps, Register>({
 
     mapPropsToValues: props => (initialValuesFormik),
@@ -67,7 +52,7 @@ const RegisterForm = withFormik<RegisterFormProps, Register>({
                 const res = await callApi().post('/auth/register', values);
                 if (res.status === 201) {
 
-                    console.log(res)
+                    //console.log(res);
                     Router.push('/auth/login');
 
                 }

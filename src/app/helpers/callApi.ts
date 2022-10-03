@@ -1,5 +1,5 @@
 import axios from "axios";
-import ValidationError from "../app/exceptions/validationError";
+import ValidationError from "../exceptions/validationError";
 
 const callApi = ()=> {
     
