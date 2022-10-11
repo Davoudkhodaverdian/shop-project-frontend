@@ -2,9 +2,9 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import Person from '../../components/models/person';
 
 const initialState: Person = {
-    name: '', email: ''
+    firstName: '', lastName: '', email: ''
 }
-    
+
 const currentPersonSlice = createSlice({
     name: "person",
     initialState: initialState,

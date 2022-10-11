@@ -7,9 +7,11 @@ let resources = {
     translation: {
       "validation": {
         "fields": {
-          'name': "name",
+          'firstName': "firstName",
+          'lastName': "lastName",
           'email': "email",
           'password': "password",
+          'confirmPassword': "confirm password",
           '3': '3'
         },
         "required": "{{ field }} is required",
@@ -27,9 +29,11 @@ let resources = {
     translation: {
       "validation": {
         "fields": {
-          'name': "نام",
+          'firstName': "نام",
+          'lastName': "نام خانوادگی",
           'email': "ایمیل",
-          'password': "پسورد",
+          'password': "رمز عبور",
+          'confirmPassword': "تائید رمز عبور",
           '3': 'سه'
         },
         "required": "{{ field }} وارد نشده",

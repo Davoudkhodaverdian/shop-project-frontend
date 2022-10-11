@@ -4,7 +4,7 @@ import ValidationError from "../exceptions/validationError";
 const callApi = ()=> {
     
     const axiosInstance = axios.create({
-        baseURL: 'http://localhost:5000/api/',
+        baseURL: 'http://localhost:27017/api',
     
     });
     
@@ -23,11 +23,21 @@ const callApi = ()=> {
         // Do something with response data
         return response;
     }, (error) => {
+        //console.log(error);
         const res = error?.response;
+         
         if (res) {
 
             if (res.status === 422) {
-              throw new ValidationError(res.data.errors)
+                if (res.data.errors) {
+                    // validation errors from server
+                    throw new ValidationError(res.data.errors)
+                }
+                else {
+                    // // repetitive error
+                    throw res.data.error;
+                }
+
             }
         }
         Promise.reject(error);

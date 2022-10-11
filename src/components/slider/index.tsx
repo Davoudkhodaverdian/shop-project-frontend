@@ -22,7 +22,7 @@ const Slide: NextPage = () => {
           },
         }}
         >
-            <div className='flex items-center justify-center m-3' >
+            <div className='flex items-center justify-center m-3' dir='rtl'>
                 <Swiper className='cursor-grab active:cursor-grabbing overflow-hidden mx-6 w-[40rem] bg-slate-100 flex'
                     modules={[Navigation, Pagination, Scrollbar]}
                     slidesPerView={1}

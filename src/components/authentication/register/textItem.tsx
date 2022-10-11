@@ -11,7 +11,7 @@ const TextItem: NextPage<Props> = ({ item }) => {
     return (
         <div className="my-4">
             <label htmlFor={item.idHtml} className="">{item.descreption}</label>
-            <Field name={item.name} type={item.type} placeholder={item.descreption}
+            <Field name={item.name} type={item.type} placeholder={item.descreption} id={item.idHtml}
                 className="appearance-none rounded relative block w-full px-3 py-2 my-1 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-violet-500 focus:border-violet-500"
             />
             <span className="text-red-500"><ErrorMessage name={item.name} /></span>

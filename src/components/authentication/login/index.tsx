@@ -6,7 +6,7 @@ const Register: NextPage = () => {
 
     return (
 
-        <div className="flex flex-col justify-center items-center h-screen">
+        <div className="flex flex-col justify-center items-center mt-10">
             <div className="md:flex flex-row w-[calc(100%-16px)]  md:max-w-[1000px] rounded shadow-lg p-4 bg-white  mx-2">
                 <div className='w-full'>
                     <div className='flex'>

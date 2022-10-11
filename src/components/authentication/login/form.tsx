@@ -11,47 +11,68 @@ import { useAppDispatch } from '../../../app/hooks'
 import { setAuth } from "../../../app/store/auth";
 import { setCurrentPerson } from "../../../app/store/currentPersonSlice";
 import Router from "next/router";
+import { toast } from 'react-toastify';
+import { useState } from "react";
+import Loading from "../../loading";
 
 
 const FormComponent: NextPage = () => {
 
-    
-
-    const dispatch = useAppDispatch()
-
+    const [loading, setLoading] = useState(false);
     let initialValuesFormik: Login = { email: "", password: "" };
 
-    let registerFormSchema = yup.object().shape({
+    let loginFormSchema = yup.object().shape({
         email: yup.string().required().email(),
         password: yup.string().required().min(3)
     })
-
+    const dispatch = useAppDispatch();
     return (
         <Formik
             initialValues={initialValuesFormik}
-            validationSchema={registerFormSchema}
+            validationSchema={loginFormSchema}
             onSubmit={
                 async (values: Login, { setFieldError }) => {
 
                     try {
+                        setLoading(true)
                         const res = await callApi().post('/auth/login', values);
 
                         if (res.status === 200) {
-                            
+                            toast.success(<div className='font-vazirmatn'>ورود شما با موفقیت انجام شد</div>, {
+                                position: "top-right",
+                                autoClose: 5000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                                theme: "light",
+                            });
+                            setLoading(false)
+                            //console.log(res.data)
                             dispatch(setAuth(res.data.token));
-                            dispatch(setCurrentPerson({name: res.data.name, email: res.data.email}));
+                            dispatch(setCurrentPerson({firstName: res.data._doc.firstName,lastName: res.data._doc.lastName, email: res.data._doc.email}));
                             Router.push('/');
                             
                         }
-                    } catch (error) {
-
+                    } catch (error : any) {
+                        setLoading(false)
                         if (error instanceof ValidationError) {
-
-                            console.log(error.messages);
-                            Object.entries(error.messages).forEach(([key, value]) => { setFieldError(key, value as string); })
-
+                            // console.log(error);
+                            (error.messages as []).map((error: any) => { setFieldError(error.parameter, error.message); });
                         }
-
+        
+                        let messageError = error.message ? error.message : "";
+                        toast.error(<div className='font-vazirmatn'>عملیات متوقف گردید، {messageError}</div>, {
+                            position: "top-right",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                        });
                     }
 
                 }
@@ -71,6 +92,7 @@ const FormComponent: NextPage = () => {
                     className="px-3 rounded text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300  mx-1">
                     ورود
                 </button>
+                {loading && <Loading text={"در حال ارسال اطلاعات ..."} />}
             </Form>
         </Formik>
     )

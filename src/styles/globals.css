@@ -38,5 +38,9 @@ a {
   .hover-active-item-navbar {
     @apply hover:text-purple-600 active:hover:text-purple-800 hover:scale-[1.03] transition-all duration-[100ms];
   }
+
+  .font-vazirmatn {
+      font-family: Vazirmatn;
+  }
   
 }
