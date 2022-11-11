@@ -1,9 +1,7 @@
-
-import type { NextPage } from 'next'
 import { useAppSelector } from '../../app/hooks';
 
 
-const ShoppingBag: NextPage = () => {
+const ShoppingBag: React.FC = () => {
 
     const shoppingBag = useAppSelector((state) => state.shoppingBag);
 
@@ -14,6 +12,7 @@ const ShoppingBag: NextPage = () => {
     }
 
     let number = getNumberShoppingBag(shoppingBag);
+    
     return (
         <div className='flex items-center cursor-pointer border p-2 rounded-sm text-center relative'>
             <span>

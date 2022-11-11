@@ -1,12 +1,12 @@
 import { ErrorMessage, Field } from 'formik'
+import React from 'react';
 
-import type { NextPage } from 'next'
 
 interface Props {
     item: { descreption: string, name: string, idHtml: string, type: string, id: number }
 }
 
-const TextItem: NextPage<Props> = ({ item }) => {
+const TextItem: React.FC<Props> = ({ item }) => {
 
     return (
         <div className="my-4">

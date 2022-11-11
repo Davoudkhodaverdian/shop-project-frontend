@@ -1,5 +1,4 @@
-import type { NextPage } from 'next'
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Button from './button';
 import Link from 'next/link'
 import { useTranslation } from 'react-i18next';
@@ -9,7 +8,7 @@ import { RootState } from '../../app/store';
 import ShoppingBag from './shoppingBag';
 import Profile from './profile';
 
-const Navbar: NextPage = () => {
+const Navbar: React.FC = () => {
     const token = useAppSelector((state: RootState) => state.auth.verifyToken);
     const currentPerson = useAppSelector((state: RootState) => state.currentPerson);
 

@@ -1,11 +1,13 @@
 import Head from 'next/head';
 import { motion } from 'framer-motion';
 import DetailsProducts from '../../components/products/detailsProducts';
-import { InferGetServerSidePropsType, GetServerSideProps } from 'next';
+import { InferGetServerSidePropsType, GetServerSideProps, NextPage } from 'next';
 import { axiosAPI } from '../../app/lib/api';
 import { useRouter } from 'next/router';
 
-const HomePage = ({ data, slug }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+type GetServer = InferGetServerSidePropsType<typeof getServerSideProps>;
+
+const HomePage: NextPage<GetServer> = ({ data, slug }: GetServer) => {
 
   const rooter = useRouter();
 

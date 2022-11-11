@@ -1,13 +1,15 @@
 import Head from 'next/head';
 import Home from './../components/home';
 import { motion } from 'framer-motion';
-import { InferGetServerSidePropsType,GetServerSideProps } from 'next';
+import { InferGetServerSidePropsType,GetServerSideProps, NextPage } from 'next';
 import { axiosAPI } from '../app/lib/api';
 import { useAppDispatch } from '../app/hooks';
 import { setProducts } from '../app/store/productsSlice';
 
-const HomePage = ({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
 
+type GetServer = InferGetServerSidePropsType<typeof getServerSideProps>;
+
+const HomePage : NextPage<GetServer>= ({ data }: GetServer) => {
 
   const dispatch = useAppDispatch();
   dispatch(setProducts(data));

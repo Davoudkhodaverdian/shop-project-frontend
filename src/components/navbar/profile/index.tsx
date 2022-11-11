@@ -1,9 +1,8 @@
-
-import type { NextPage } from 'next';
 import MaterialUIMenu from './dropdownMenu/materialUIMenu';
 import { useTranslation } from 'react-i18next';
+import React from 'react';
 
-const Profile: NextPage<any> = () => {
+const Profile: React.FC<any> = () => {
 
     const { t } = useTranslation();
     return (

@@ -1,9 +1,9 @@
 
-import type { NextPage } from 'next'
+import React from 'react';
 import Form from './form';
 // import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 
-const Register: NextPage = () => {
+const Register: React.FC = () => {
 
     return (
 

@@ -1,8 +1,9 @@
+import { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react'
 
-const NotFound: React.FC = () => {
+const NotFound: NextPage = () => {
 
     return (
         <div>

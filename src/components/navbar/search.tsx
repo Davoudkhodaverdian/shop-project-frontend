@@ -1,9 +1,7 @@
-
-import type { NextPage } from 'next'
 import React from 'react';
 
 
-const Search: NextPage = () => {
+const Search: React.FC = () => {
 
     const submitHandler: React.FormEventHandler = (event: React.FormEvent) => {
         event.preventDefault();

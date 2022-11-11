@@ -1,9 +1,9 @@
-import { NextPage } from "next";
+import React from "react";
 import Layout from "../layout";
 
 
 
-const Panel: NextPage = () => {
+const Panel: React.FC = () => {
 
     return (
         <Layout>

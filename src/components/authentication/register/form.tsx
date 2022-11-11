@@ -21,10 +21,7 @@ const RegisterForm = () => {
 
     const [loading, setLoading] = useState(false);
     const dispatch = useAppDispatch();
-    // const handleVerify = () => {
-
-    // }
-
+    
     const initialValuesFormik: Register = { firstName: "", lastName: "", email: "", password: "", confirmPassword: "" };
 
     let registerFormSchema = yup.object().shape({

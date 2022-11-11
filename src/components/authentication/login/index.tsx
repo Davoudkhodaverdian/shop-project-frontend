@@ -1,8 +1,7 @@
-
-import type { NextPage } from 'next'
+import React from 'react';
 import Form from './form';
 
-const Register: NextPage = () => {
+const Register: React.FC = () => {
 
     return (
 

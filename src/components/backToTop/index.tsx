@@ -1,7 +1,6 @@
-import { NextPage } from 'next'
-import { useState, useEffect,useRef } from 'react'
+import React, { useState, useEffect,useRef } from 'react'
 
-const BackToTop: NextPage = () => {
+const BackToTop: React.FC = () => {
 
     const [isShow, setIsShow] = useState(true)
     const RefButton : any= useRef(null);

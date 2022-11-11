@@ -1,4 +1,3 @@
-import { NextPage } from "next";
 import formData from './formData'
 import { Formik, Form } from 'formik'
 import Login from "../../models/login";
@@ -12,11 +11,11 @@ import { setAuth } from "../../../app/store/auth";
 import { setCurrentPerson } from "../../../app/store/currentPersonSlice";
 import Router from "next/router";
 import { toast } from 'react-toastify';
-import { useState } from "react";
+import React, { useState } from "react";
 import Loading from "../../loading";
 
 
-const FormComponent: NextPage = () => {
+const FormComponent: React.FC = () => {
 
     const [loading, setLoading] = useState(false);
     let initialValuesFormik: Login = { email: "", password: "" };

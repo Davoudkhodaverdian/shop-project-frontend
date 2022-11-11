@@ -1,10 +1,10 @@
-import type { NextPage } from 'next';
 import Image from 'next/image';
+import React from 'react';
 import styles from '../../styles/Home.module.css';
 import BackToTop from '../backToTop';
 import Navbar from '../navbar';
 
-const Layout: NextPage<any> = ({children}) => {
+const Layout: React.FC<any> = ({children}) => {
 
 
     return (

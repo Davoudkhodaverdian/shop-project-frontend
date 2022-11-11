@@ -1,12 +1,10 @@
-
-import type { NextPage } from 'next'
 import React, { Dispatch,SetStateAction } from 'react';
 
 type Props = {
     setShow: Dispatch<SetStateAction<boolean>>
 }
 
-const Button: NextPage<Props> = ({ setShow }) => {
+const Button: React.FC<Props> = ({ setShow }) => {
 
     const MenuHandler = () => {
         setShow((prevState: boolean) => !prevState)
