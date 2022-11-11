@@ -11,6 +11,7 @@ import Profile from './profile';
 const Navbar: React.FC = () => {
     const token = useAppSelector((state: RootState) => state.auth.verifyToken);
     const currentPerson = useAppSelector((state: RootState) => state.currentPerson);
+    const shoppingBag = useAppSelector((state: RootState) => state.shoppingBag);
 
     const [show, setShow] = useState<boolean>(false)
     const { t, i18n } = useTranslation();
@@ -18,6 +19,11 @@ const Navbar: React.FC = () => {
     //get date
     const options = { month: 'long' };
     let today = new Date().toLocaleDateString('fa-IR', options as any);
+
+    const shoppingBagHandler = () => {
+        console.log(shoppingBag)
+    }
+
 
     return (
         <>
@@ -30,29 +36,29 @@ const Navbar: React.FC = () => {
                             {
                                 token ?
 
-                                    <li className='p-1 flex justify-center items-center'>
-                                        <Profile />
-                                    </li>
+                                    <li className='p-1 flex justify-center items-center'><Profile /></li>
                                     :
                                     <>
                                         <Link href="auth/register"><a><li className='p-1 cursor-pointer py-3 hover-active-item-navbar'>{t('register')}</li></a></Link>
                                         <Link href="auth/login"><a><li className='p-1 cursor-pointer py-3 hover-active-item-navbar'>{t('login')}</li></a></Link>
                                     </>
-
                             }
-
-
                         </ul>
-
                     </div>
                     <Button setShow={setShow} />
                     <div className={`md:flex hidden`}>
-                        <li className='cursor-pointer flex justify-center items-center hover-active-item-navbar'><ShoppingBag /></li>
+                        <li onClick={shoppingBagHandler}
+                            className='cursor-pointer flex justify-center items-center hover-active-item-navbar'>
+                            <ShoppingBag />
+                        </li>
                         <li className='cursor-pointer flex justify-center items-center hover-active-item-navbar'><Language /></li>
                     </div>
                 </div>
                 <div className={`block ${show ? '' : 'hidden'} md:hidden`}>
-                    <li className='cursor-pointer flex  items-center py-3 hover-active-item-navbar'><ShoppingBag /></li>
+                    <li onClick={shoppingBagHandler}
+                        className='cursor-pointer flex  items-center py-3 hover-active-item-navbar'>
+                        <ShoppingBag />
+                    </li>
                     <li className='cursor-pointer flex  items-center py-3 hover-active-item-navbar'><Language /></li>
                 </div>
 

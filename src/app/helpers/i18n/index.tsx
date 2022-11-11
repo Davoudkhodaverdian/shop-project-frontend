@@ -12,6 +12,7 @@ let resources = {
           'email': "email",
           'password': "password",
           'confirmPassword': "confirm password",
+          'confirmPasswordError': "confirm password value is not equal to password value",
           '3': '3'
         },
         "required": "{{ field }} is required",
@@ -36,6 +37,7 @@ let resources = {
           'email': "ایمیل",
           'password': "رمز عبور",
           'confirmPassword': "تائید رمز عبور",
+          'confirmPasswordError': "تائید رمز عبور با رمز عبور یکی نیست",
           '3': 'سه'
         },
         "required": "{{ field }} وارد نشده",

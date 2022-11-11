@@ -14,6 +14,7 @@ import { setAuth } from "../../../app/store/auth";
 import { setCurrentPerson } from "../../../app/store/currentPersonSlice";
 import { useState } from 'react';
 import Loading from '../../loading';
+import { useTranslation } from 'react-i18next';
 
 // import { GoogleReCaptcha } from 'react-google-recaptcha-v3';
 
@@ -21,9 +22,8 @@ const RegisterForm = () => {
 
     const [loading, setLoading] = useState(false);
     const dispatch = useAppDispatch();
-    
     const initialValuesFormik: Register = { firstName: "", lastName: "", email: "", password: "", confirmPassword: "" };
-
+    const { t } = useTranslation();
     let registerFormSchema = yup.object().shape({
         firstName: yup.string().required(),
         lastName: yup.string().required(),
@@ -39,10 +39,12 @@ const RegisterForm = () => {
             onSubmit={
                 async (values: Register, { setFieldError }) => {
                     try {
-                        setLoading(true)
                         // console.log(values);
-
-                        if (values.confirmPassword !== values.password) return setFieldError("confirmPassword", "تائید رمز عبور با رمز عبور یکی نیست");
+                        
+                        if (values.confirmPassword !== values.password) 
+                            return setFieldError("confirmPassword", t('validation.fields.confirmPasswordError'));
+                        
+                        setLoading(true)
                         const { firstName, lastName, email, password } = values;
                         const res: any = await callApi().post('/auth/register', { firstName, lastName, email, password });
                         //console.log(res);

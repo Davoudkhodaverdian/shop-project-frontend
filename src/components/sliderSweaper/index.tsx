@@ -24,20 +24,21 @@ export default () => {
           // navigation
 
         >
-          {[1, 2, 3].map(item => (
-            <SwiperSlide key={item}>
+          {[{id:1,src:"slide-one.webp"}, {id:1,src:"slide-two.jpg"},{id:1,src:"slide-three.webp"}].map(item => (
+            <SwiperSlide key={item.id}>
               <section
                 className="w-full mx-auto flex pt-12 md:pt-0 md:items-center bg-cover bg-right shadow-inner"
                 style={{
                   maxWidth: "1600px",
                   height: "32rem",
-                  backgroundImage: 'url("/images/slide/open-chair-slide1.jpeg")',
+                  // backgroundImage: 'url("/images/slide/open-chair-slide1.jpeg")',
+                  backgroundImage: `url("/images/slide/${item.src}")`,
                 }}
               >
                 <div className="container mx-auto">
                   <div className="flex flex-col w-full lg:w-1/2 justify-center items-start  px-6 tracking-wide">
                     <h1 className="text-black text-2xl bg-white rounded font-bold py-2 px-4">
-                      {item} فروشگاه محصولات دیجیتال
+                      {item.id} فروشگاه محصولات دیجیتال
                     </h1>
                     <a
                       className="text-xl bg-black text-white px-2 rounded mt-4 inline-block border-gray-600 leading-relaxed hover:bg-gray-200 hover:text-black"
