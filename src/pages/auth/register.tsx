@@ -2,8 +2,18 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Register from '../../components/authentication/register'
 import { motion } from 'framer-motion';
+import { useAppSelector } from '../../app/hooks';
+import { useRouter } from 'next/router';
+import { RootState } from '../../app/store';
 
 const RegisterPage: NextPage = () => {
+
+
+  const token = useAppSelector((state: RootState) => state.auth.verifyToken);
+  const rooter = useRouter();
+  if (token) rooter.push('/');
+
+
   return (
     <div dir='rtl' >
       <Head>

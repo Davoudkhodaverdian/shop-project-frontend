@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Image from 'next/image';
 import styles from '../../styles/Home.module.css';
+import BackToTop from '../backToTop';
 import Navbar from '../navbar';
 
 const Layout: NextPage<any> = ({children}) => {
@@ -11,6 +12,7 @@ const Layout: NextPage<any> = ({children}) => {
             <Navbar />
             {children}
             <footer className={styles.footer}><Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} /></footer>
+            <BackToTop />
         </div>
 
     )

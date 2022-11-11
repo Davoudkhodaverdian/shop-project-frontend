@@ -2,8 +2,17 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Login from '../../components/authentication/login'
 import { motion } from 'framer-motion';
+import { useAppSelector } from '../../app/hooks';
+import { RootState } from '../../app/store';
+import { useRouter } from 'next/router';
 
 const LoginPage: NextPage = () => {
+
+  const token = useAppSelector((state: RootState) => state.auth.verifyToken);
+  const rooter = useRouter();
+  if (token) rooter.push('/');
+
+
   return (
     <div dir='rtl' >
       <Head>

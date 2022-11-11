@@ -23,6 +23,8 @@ let resources = {
       "profile": "profile",
       "exit": "exit",
       "main page": "main page",
+      "panel": "panel",
+      "change language": "change language"
     }
   },
   fa: {
@@ -45,6 +47,8 @@ let resources = {
       "profile": "پروفایل",
       "exit": "خروج",
       "main page": "صفحه اصلی",
+      "panel": "پنل کاربری",
+      "change language": "تغییر زبان",
     }
   },
 }

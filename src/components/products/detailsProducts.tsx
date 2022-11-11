@@ -1,41 +1,25 @@
 
-import React, { useState } from "react";
-import Product from "../models/Product";
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import React from "react";
+import { getStrapiImage } from "../../app/lib/media";
 import Layout from "../layout";
-import { removeShoppingBag } from "../../app/store/shoppingBagSlice";
 import Buymanager from "./buymanager";
-interface Props {
-    item: Product
-}
+
+interface Props { item: any }
+
 const DetailsProducts: React.FC<Props> = ({ item }) => {
 
-
-    const shoppingBag = useAppSelector((state) => state.shoppingBag);
-    const [picked, setPicked] = useState(!!shoppingBag.find(i => i.ProductID === item.ProductID));
-    const dispitch = useAppDispatch();
-    const HandleShoppingBag = () => {
-        if (picked) {
-           // dispitch(removeShoppingBag(item.id));
-        }
-    }
+    const { name, description, image } = item.attributes;
 
     return (
         <Layout>
             <div className="shadow border border-gray-300 p-10 m-10 rounded ">
                 <div>
-                    <img src={`/images/products/${item?.ProductImage}`} alt="" className="max-h-[500px] my-2" />
+                    <img className="hover:grow max-h-[500px] my-2" src={getStrapiImage(image?.data, 'small')} />
                 </div>
-                <div>{item?.ProductName}</div>
-                <Buymanager item={item}/>
-                <div>
-                    قیمت: {item?.ProductPrice}
-                </div>
-                <div>
-                    توضیحات: {item?.ProductDesc}
-                </div>
+                <div>{name}</div>
+                <div className="flex md:flex-row flex-col p-3"><Buymanager item={{...item.attributes,id:item.id}} /></div>
+                <div>توضیحات: {description}</div>
             </div>
-
         </Layout>
     )
 

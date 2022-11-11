@@ -3,6 +3,7 @@ import personsReducer from './personsSlice';
 import languageReducer from './languageSlice';
 import currentPersonReducer from './currentPersonSlice';
 import shoppingBagReducer from './shoppingBagSlice';
+import productsReducer from './productsSlice';
 import authReducer from './auth';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
@@ -13,12 +14,13 @@ const rootReducer = combineReducers({
   currentPerson: currentPersonReducer,
   auth: authReducer,
   shoppingBag: shoppingBagReducer,
+  products: productsReducer,
 })
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ["auth","currentPerson"] // only this item will be persisted
+  whitelist: ["auth","currentPerson","shoppingBag"] // only this item will be persisted
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

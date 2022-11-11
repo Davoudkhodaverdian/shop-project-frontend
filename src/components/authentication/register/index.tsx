@@ -19,7 +19,7 @@ const Register: NextPage = () => {
                         reCaptchaKey="6LcCA1wiAAAAALAjeOG7XhL1YYNRxUirf2ZY_W71"
                         language="fa"
                     > */}
-                        <Form />
+                    <Form />
                     {/* </GoogleReCaptchaProvider> */}
                 </div>
                 <div className='max-w-[500px] md:flex flex-col justify-center items-center hidden p-3'>

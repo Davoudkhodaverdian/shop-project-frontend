@@ -1,5 +1,5 @@
 
-import { withFormik, FormikProps, Form, Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import Link from 'next/link';
 import Register from '../../models/register';
 import formData from './formData';

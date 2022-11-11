@@ -2,9 +2,11 @@ import axios from "axios";
 import ValidationError from "../exceptions/validationError";
 
 const callApi = ()=> {
-    
+
+ 
     const axiosInstance = axios.create({
-        baseURL: 'http://localhost:27017/api',
+        // baseURL: process.env.NODE_ENV === 'development' ? "http://localhost:27017/api" : process.env.REACT_APP_API,
+        baseURL: 'https://api.davoudkhtechone.ir/api',
     
     });
     
@@ -32,8 +34,8 @@ const callApi = ()=> {
                 if (res.data.errors) {
                     // validation errors from server
                     throw new ValidationError(res.data.errors)
-                }
-                else {
+                    
+                } else {
                     // // repetitive error
                     throw res.data.error;
                 }
