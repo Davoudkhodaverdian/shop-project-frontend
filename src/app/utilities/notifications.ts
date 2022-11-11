@@ -11,6 +11,7 @@ export const successMessage = (message: any) => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
+        theme: "light",
     });
 }
 
@@ -25,5 +26,6 @@ export const errorMessage = (message: any) => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
+        theme: "light",
     });
 }

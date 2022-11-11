@@ -8,13 +8,13 @@ import * as yup from 'yup';
 import callApi from '../../../app/helpers/callApi';
 import Router from 'next/router'
 import ValidationError from "../../../app/exceptions/validationError";
-import { toast } from 'react-toastify';
 import { useAppDispatch } from '../../../app/hooks'
 import { setAuth } from "../../../app/store/auth";
 import { setCurrentPerson } from "../../../app/store/currentPersonSlice";
 import { useState } from 'react';
 import Loading from '../../loading';
 import { useTranslation } from 'react-i18next';
+import { errorMessage, successMessage } from '../../../app/utilities/notifications';
 
 // import { GoogleReCaptcha } from 'react-google-recaptcha-v3';
 
@@ -52,17 +52,7 @@ const RegisterForm = () => {
                         if (res.status === 200) {
 
                             //console.log(res);
-                            toast.success(<div className='font-vazirmatn'>ثبت نام شما با موفقیت انجام شد</div>, {
-                                position: "top-right",
-                                autoClose: 5000,
-                                hideProgressBar: false,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true,
-                                progress: undefined,
-                                theme: "light",
-                            });
-
+                            successMessage(<div className='font-vazirmatn'>ثبت نام شما با موفقیت انجام شد</div>);
                             //console.log(res.data)
                             dispatch(setAuth(res.data.token));
                             dispatch(setCurrentPerson({ firstName: res.data._doc.firstName, lastName: res.data._doc.lastName, email: res.data._doc.email }));
@@ -76,16 +66,7 @@ const RegisterForm = () => {
                         }
 
                         let messageError = error.message ? error.message : "";
-                        toast.error(<div className='font-vazirmatn'>عملیات متوقف گردید، {messageError}</div>, {
-                            position: "top-right",
-                            autoClose: 5000,
-                            hideProgressBar: false,
-                            closeOnClick: true,
-                            pauseOnHover: true,
-                            draggable: true,
-                            progress: undefined,
-                            theme: "light",
-                        });
+                        errorMessage(<div className='font-vazirmatn'>عملیات متوقف گردید، {messageError}</div>)
                     }
 
 

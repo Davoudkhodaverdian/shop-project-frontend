@@ -10,9 +10,9 @@ import { useAppDispatch } from '../../../app/hooks'
 import { setAuth } from "../../../app/store/auth";
 import { setCurrentPerson } from "../../../app/store/currentPersonSlice";
 import Router from "next/router";
-import { toast } from 'react-toastify';
 import React, { useState } from "react";
 import Loading from "../../loading";
+import { errorMessage, successMessage } from '../../../app/utilities/notifications';
 
 
 const FormComponent: React.FC = () => {
@@ -37,16 +37,8 @@ const FormComponent: React.FC = () => {
                         const res = await callApi().post('/auth/login', values);
 
                         if (res.status === 200) {
-                            toast.success(<div className='font-vazirmatn'>ورود شما با موفقیت انجام شد</div>, {
-                                position: "top-right",
-                                autoClose: 5000,
-                                hideProgressBar: false,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true,
-                                progress: undefined,
-                                theme: "light",
-                            });
+
+                            successMessage(<div className='font-vazirmatn'>ورود شما با موفقیت انجام شد</div>);
                             setLoading(false)
                             //console.log(res.data)
                             dispatch(setAuth(res.data.token));
@@ -62,16 +54,7 @@ const FormComponent: React.FC = () => {
                         }
         
                         let messageError = error.message ? error.message : "";
-                        toast.error(<div className='font-vazirmatn'>عملیات متوقف گردید، {messageError}</div>, {
-                            position: "top-right",
-                            autoClose: 5000,
-                            hideProgressBar: false,
-                            closeOnClick: true,
-                            pauseOnHover: true,
-                            draggable: true,
-                            progress: undefined,
-                            theme: "light",
-                        });
+                        errorMessage(<div className='font-vazirmatn'>عملیات متوقف گردید، {messageError}</div>)
                     }
 
                 }
