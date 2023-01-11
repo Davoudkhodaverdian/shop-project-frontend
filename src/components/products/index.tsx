@@ -6,12 +6,12 @@ import { RootState } from "../../app/store";
 const Products = () => {
 
   const products = useAppSelector((state: RootState) => state.products);
-  // console.log(products)
+  console.log("products: ",products)
 
   return (
     <section className="bg-white py-8">
-      <div className="container mx-auto flex items-center flex-wrap pt-4 pb-12">
-        <nav id="store" className="w-full z-30 top-0 px-6 py-1">
+      <div className="container mx-auto flex items-center flex-col pt-4 pb-12 ">
+        <nav id="store" className="w-full top-0 px-6 py-1">
           <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
             <a
               className="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl "
@@ -53,7 +53,9 @@ const Products = () => {
             </div>
           </div>
         </nav>
-        {products.map(({ attributes, id }) => (<ProductCard key={id} data={{ ...attributes, id }} />))}
+        <div className="w-full grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          {products.map(({ attributes, id }) => (<ProductCard key={id} data={{ ...attributes, id }} />))}
+        </div>
       </div>
     </section>
   );

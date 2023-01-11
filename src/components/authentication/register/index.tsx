@@ -6,9 +6,8 @@ import Form from './form';
 const Register: React.FC = () => {
 
     return (
-
-        <div className="flex flex-col justify-center items-center mt-10">
-            <div className="md:flex flex-row w-[calc(100%-16px)]  md:max-w-[1000px] rounded shadow-lg p-4 bg-white  mx-2">
+        <div className="flex flex-col justify-center items-center my-10">
+            <div className="md:flex flex-row w-[calc(100%-16px)]  md:max-w-[800px] rounded shadow-lg p-4 bg-white  mx-2">
                 <div className='w-full'>
                     <div className='flex'>
                         <div className='flex  items-center'><img src="/images/logos/logo.svg" width={50} alt="logo" /></div>
@@ -22,7 +21,7 @@ const Register: React.FC = () => {
                     <Form />
                     {/* </GoogleReCaptchaProvider> */}
                 </div>
-                <div className='max-w-[500px] md:flex flex-col justify-center items-center hidden p-3'>
+                <div className='w-[800px] md:flex flex-col justify-center items-center hidden p-3'>
                     <img src="/images/auth/undraw_business_shop_re_ruf4.svg" />
                 </div>
             </div>

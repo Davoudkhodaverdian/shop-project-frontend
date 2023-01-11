@@ -5,8 +5,8 @@ const callApi = ()=> {
 
  
     const axiosInstance = axios.create({
-        // baseURL: process.env.NODE_ENV === 'development' ? "http://localhost:27017/api" : process.env.REACT_APP_API,
-        baseURL: 'https://api.davoudkhtechone.ir/api',
+        baseURL: process.env.NODE_ENV === 'development' ? "http://localhost:27017/api" : process.env.REACT_APP_API,
+        // baseURL: 'https://api.davoudkhtechone.ir/api',
     
     });
     
@@ -16,7 +16,7 @@ const callApi = ()=> {
         return config;
     }, (error) => {
         // Do something with request error
-        return Promise.reject(error);
+        throw error;
     });
     
     // Add a response interceptor
@@ -36,13 +36,13 @@ const callApi = ()=> {
                     throw new ValidationError(res.data.errors)
                     
                 } else {
-                    // // repetitive error
+                    // repetitive error
                     throw res.data.error;
                 }
 
             }
         }
-        Promise.reject(error);
+        throw error;
     });
 
     return axiosInstance;

@@ -8,14 +8,18 @@ import { RootState } from '../../app/store';
 import ShoppingBag from './shoppingBag';
 import Profile from './profile';
 
-const Navbar: React.FC = () => {
-    const token = useAppSelector((state: RootState) => state.auth.verifyToken);
-    const currentPerson = useAppSelector((state: RootState) => state.currentPerson);
+interface Props {
+    isAuthentacted: boolean
+}
+
+const Navbar: React.FC<Props> = ({isAuthentacted}) => {
+    //const token = useAppSelector((state: RootState) => state.auth.verifyToken);
+    const currentPerson = useAppSelector((state: RootState) => state.auth.user);
     const shoppingBag = useAppSelector((state: RootState) => state.shoppingBag);
 
     const [show, setShow] = useState<boolean>(false)
     const { t, i18n } = useTranslation();
-
+    console.log('Navbar',"isAuthentacted: ",isAuthentacted)
     //get date
     const options = { month: 'long' };
     let today = new Date().toLocaleDateString('fa-IR', options as any);
@@ -34,13 +38,13 @@ const Navbar: React.FC = () => {
                             <li className='p-1 py-3'>فروشگاه زنجیره ای</li>
                             <Link href="/"><a><li className='p-1 cursor-pointer py-3 hover-active-item-navbar'>{t('main page')}</li></a></Link>
                             {
-                                token ?
+                                isAuthentacted ?
 
                                     <li className='p-1 flex justify-center items-center'><Profile /></li>
                                     :
                                     <>
-                                        <Link href="auth/register"><a><li className='p-1 cursor-pointer py-3 hover-active-item-navbar'>{t('register')}</li></a></Link>
-                                        <Link href="auth/login"><a><li className='p-1 cursor-pointer py-3 hover-active-item-navbar'>{t('login')}</li></a></Link>
+                                        <Link href="/auth/register"><a><li className='p-1 cursor-pointer py-3 hover-active-item-navbar'>{t('register')}</li></a></Link>
+                                        <Link href="/auth/login"><a><li className='p-1 cursor-pointer py-3 hover-active-item-navbar'>{t('login')}</li></a></Link>
                                     </>
                             }
                         </ul>
@@ -67,7 +71,7 @@ const Navbar: React.FC = () => {
             <div className='p-2 bg-purple-800 shadow-inner text-white'>
                 <div>{today} {new Date().toLocaleDateString('fa-IR')}</div>
                 <div>
-                    {token && (currentPerson.firstName ? `${currentPerson.firstName} ${currentPerson.lastName} عزیز خوش آمدید` : '')}
+                    {isAuthentacted && (currentPerson?.firstName ? `${currentPerson?.firstName} ${currentPerson?.lastName} عزیز خوش آمدید` : '')}
                 </div>
             </div>
 

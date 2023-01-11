@@ -1,17 +1,22 @@
-import type { NextPage } from 'next'
+import { useEffect } from 'react';
 import Head from 'next/head'
 import Login from '../../components/authentication/login'
 import { motion } from 'framer-motion';
 import { useAppSelector } from '../../app/hooks';
 import { RootState } from '../../app/store';
 import { useRouter } from 'next/router';
+import { NextPageWithLayout } from '../_app';
+import GuestLayout from '../../components/layouts/guestLayout';
 
-const LoginPage: NextPage = () => {
+const LoginPage: NextPageWithLayout = () => {
 
   const token = useAppSelector((state: RootState) => state.auth.verifyToken);
   const rooter = useRouter();
-  if (token) rooter.push('/');
 
+  useEffect(() => {
+    if (token) rooter.push('/');
+
+  },[token]);
 
   return (
     <div dir='rtl' >
@@ -21,9 +26,9 @@ const LoginPage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <motion.div
-        initial={{ opacity: 0, y: -300 }}
+        initial={{ opacity: 0, x: -900 }}
         animate={{
-          opacity: 1, y: 0, transition: {
+          opacity: 1, x: 0, transition: {
             duration: 0.8,
           },
         }}
@@ -34,5 +39,6 @@ const LoginPage: NextPage = () => {
     </div>
   )
 }
+LoginPage.getLayout = (page) => (<GuestLayout>{page}</GuestLayout>);
 
 export default LoginPage

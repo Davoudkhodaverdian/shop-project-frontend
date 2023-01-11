@@ -9,8 +9,18 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NextNProgress from "nextjs-progressbar";
+import { NextPage } from 'next';
+import { ReactElement, ReactNode } from 'react';
 
-function MyApp({ Component, pageProps }: AppProps) {
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode
+}
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
+
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const { t, i18n } = useTranslation();
   setLocale({
     mixed: {
@@ -22,15 +32,17 @@ function MyApp({ Component, pageProps }: AppProps) {
     },
   });
 
+  // Use the layout defined at the page level, if available
+  const getLayout = Component.getLayout ?? ((page) => page)
+
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <NextNProgress />
-        <Component {...pageProps} />
+        {getLayout(<Component {...pageProps} />)}
         <ToastContainer />
       </PersistGate>
     </Provider>
-
   )
 }
 

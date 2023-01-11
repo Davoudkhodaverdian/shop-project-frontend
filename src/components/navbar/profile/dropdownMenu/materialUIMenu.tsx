@@ -4,8 +4,8 @@ import MenuList from '@mui/material/MenuList';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from '../../../../app/hooks';
-import { setCurrentPerson } from '../../../../app/store/currentPersonSlice';
 import { setAuth } from '../../../../app/store/auth';
+
 
 const MaterialUIMenu: React.FC<any> = ({ children }) => {
 
@@ -14,9 +14,8 @@ const MaterialUIMenu: React.FC<any> = ({ children }) => {
     const dispatch = useAppDispatch();
     const { t } = useTranslation();
     const exit = () => {
-        setOpen(false)
-        dispatch(setAuth(''));
-        dispatch(setCurrentPerson({ firstName: '', lastName: '', email: '' }));
+        setOpen(false);
+        dispatch(setAuth({ verifyToken: '', user: null }))
     }
 
     const handleToggle = () => { setOpen((prevOpen) => !prevOpen) };
@@ -59,7 +58,7 @@ const MaterialUIMenu: React.FC<any> = ({ children }) => {
                 </div>
             </div>
             <ClickAwayListener onClickAway={handleClose}>
-                <MenuList className='relative'  autoFocusItem={open} onKeyDown={handleListKeyDown}>
+                <MenuList className='relative' autoFocusItem={open} onKeyDown={handleListKeyDown}>
                     <div className={`${open ? "transform opacity-100 z-10" : "transform opacity-0 z-[-1]"} transition-all absolute right-[-97px] mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-sm bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}>
                         <ul className='flex flex-col'>
                             <Link href="/panel">

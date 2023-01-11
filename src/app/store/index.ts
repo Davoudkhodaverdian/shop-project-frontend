@@ -1,7 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import personsReducer from './personsSlice';
 import languageReducer from './languageSlice';
-import currentPersonReducer from './currentPersonSlice';
 import shoppingBagReducer from './shoppingBagSlice';
 import productsReducer from './productsSlice';
 import authReducer from './auth';
@@ -11,7 +10,6 @@ import storage from 'redux-persist/lib/storage' // defaults to localStorage for 
 const rootReducer = combineReducers({
   persons: personsReducer,
   language: languageReducer,
-  currentPerson: currentPersonReducer,
   auth: authReducer,
   shoppingBag: shoppingBagReducer,
   products: productsReducer,

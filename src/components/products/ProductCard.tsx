@@ -11,10 +11,18 @@ const ProductCard: React.FC<Props> = ({ data }) => {
 
   const { image, name } = data;
 
+
+
   return (
-    <div className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-      <a className="hover:shadow-lg p-2">
-        <img className="hover:grow" src={getStrapiImage(image?.data, 'small')} />
+    <div className="w-full p-6 flex flex-col ">
+      <a className="hover:shadow-lg p-2 ">
+        <Link href={{ pathname: '/detailsProducts/[slug]', query: { slug: data?.slug } }}>
+          <div className="relative overflow-hidden cursor-pointer flex items-center justify-center max-h-[310px]">
+            <div className="h-[310px] relative p-5 hover:scale-110 transition">
+              <img className="max-h-[310px]" src={getStrapiImage(image?.data, 'small')} />
+            </div>
+          </div>
+        </Link>
         <div className="pt-3 flex items-center justify-between">
           <p className="">{name}</p>
           <svg

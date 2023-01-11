@@ -27,7 +27,7 @@ const SlideShow = () => {
         <section
           className="w-full mx-auto flex pt-12 md:pt-0 md:items-center bg-cover bg-right shadow-inner"
           style={{
-            maxWidth: "1600px",
+            maxWidth: "100%",
             height: "32rem",
             backgroundImage: 'url("/images/slide/open-chair-slide1.jpeg")',
           }}

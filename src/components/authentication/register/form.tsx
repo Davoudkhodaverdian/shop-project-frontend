@@ -10,12 +10,11 @@ import Router from 'next/router'
 import ValidationError from "../../../app/exceptions/validationError";
 import { useAppDispatch } from '../../../app/hooks'
 import { setAuth } from "../../../app/store/auth";
-import { setCurrentPerson } from "../../../app/store/currentPersonSlice";
 import { useState } from 'react';
 import Loading from '../../loading';
 import { useTranslation } from 'react-i18next';
 import { errorMessage, successMessage } from '../../../app/utilities/notifications';
-
+import { storeLoginToken } from '../../../app/helpers/auth';
 // import { GoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 const RegisterForm = () => {
@@ -40,10 +39,10 @@ const RegisterForm = () => {
                 async (values: Register, { setFieldError }) => {
                     try {
                         // console.log(values);
-                        
-                        if (values.confirmPassword !== values.password) 
+
+                        if (values.confirmPassword !== values.password)
                             return setFieldError("confirmPassword", t('validation.fields.confirmPasswordError'));
-                        
+
                         setLoading(true)
                         const { firstName, lastName, email, password } = values;
                         const res: any = await callApi().post('/auth/register', { firstName, lastName, email, password });
@@ -51,12 +50,18 @@ const RegisterForm = () => {
                         setLoading(false)
                         if (res.status === 200) {
 
-                            //console.log(res);
-                            successMessage(<div className='font-vazirmatn'>ثبت نام شما با موفقیت انجام شد</div>);
-                            //console.log(res.data)
-                            dispatch(setAuth(res.data.token));
-                            dispatch(setCurrentPerson({ firstName: res.data._doc.firstName, lastName: res.data._doc.lastName, email: res.data._doc.email }));
-                            Router.push('/');
+                            // await dispatch(setAuth({
+                            //     verifyToken: res.data.token,
+                            //     user: {
+                            //         firstName: res.data._doc.firstName,
+                            //         lastName: res.data._doc.lastName,
+                            //         email: res.data._doc.email
+                            //     },
+                            // }));
+                            await storeLoginToken(res.data.token, 30);
+                            successMessage(<div className='font-vazirmatn'>ثبت نام شما با موفقیت انجام شد</div>);  
+                            await Router.push('/');
+                            return <></> 
                         }
                     } catch (error: any) {
                         setLoading(false)
@@ -68,7 +73,6 @@ const RegisterForm = () => {
                         let messageError = error.message ? error.message : "";
                         errorMessage(<div className='font-vazirmatn'>عملیات متوقف گردید، {messageError}</div>)
                     }
-
 
                 }
             }
@@ -90,6 +94,7 @@ const RegisterForm = () => {
                     ثبت نام
                 </button>
                 {loading && <Loading text={"در حال ارسال اطلاعات ..."} />}
+                <Link href="/auth/login"><a className='hover:text-blue-700 transition'><div className=' mt-4'>قبلا ثبت نام کرده اید</div></a></Link>
             </Form>
         </Formik >
     )
