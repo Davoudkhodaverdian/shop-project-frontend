@@ -6,7 +6,6 @@ import { RootState } from "../../app/store";
 const Products = () => {
 
   const products = useAppSelector((state: RootState) => state.products);
-  console.log("products: ",products)
 
   return (
     <section className="bg-white py-8">

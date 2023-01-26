@@ -16,13 +16,16 @@ interface Props {
 const AdminLayout: React.FC<Props> = ({ children }) => {
 
     const router = useRouter();
-    const { user, loading } = useAuth();
-    if (loading) return <Loading justSpinner={true}/>
-    if (!loading && !user?.isAdmin) {
-        if (!user) router.push('/');
-        else router.push('/panel');
-        return <></>
-    }
+    const { user, loading ,error} = useAuth();
+    if (loading) return <Loading justSpinner={true} fullPage={true} />
+
+        if (!user?.isAdmin) {
+            if (user) router.push('/panel');
+            else router.push('/');
+            return <></>
+        }
+
+    
 
 
     return (

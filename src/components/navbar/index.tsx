@@ -19,19 +19,18 @@ const Navbar: React.FC<Props> = ({isAuthentacted}) => {
 
     const [show, setShow] = useState<boolean>(false)
     const { t, i18n } = useTranslation();
-    console.log('Navbar',"isAuthentacted: ",isAuthentacted)
     //get date
     const options = { month: 'long' };
     let today = new Date().toLocaleDateString('fa-IR', options as any);
 
     const shoppingBagHandler = () => {
-        console.log(shoppingBag)
+        console.log('shoppingBag',shoppingBag)
     }
 
 
     return (
         <>
-            <div className=' px-3 bg-gray-100 dark:bg-slate-700 dark:text-white shadow-lg'>
+            <div className=' px-3 bg-gray-100 dark:bg-slate-700 dark:text-white shadow-lg transition-all'>
                 <div className='flex justify-between'>
                     <div className=''>
                         <ul className='flex'>

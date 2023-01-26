@@ -13,13 +13,14 @@ import React, { useState } from "react";
 import Loading from "../../loading";
 import { errorMessage, successMessage } from '../../../app/utilities/notifications';
 import { storeLoginToken } from '../../../app/helpers/auth';
+import useAuth from '../../../app/hooks/useAuth';
 
 
 const FormComponent: React.FC = () => {
 
     const [loading, setLoading] = useState(false);
     let initialValuesFormik: Login = { email: "", password: "" };
-
+    const { mutate } = useAuth();
     let loginFormSchema = yup.object().shape({
         email: yup.string().required().email(),
         password: yup.string().required().min(3)
@@ -40,17 +41,20 @@ const FormComponent: React.FC = () => {
 
                         if (res.status === 200) {
 
-                            // await dispatch(setAuth({
+                            // dispatch(setAuth({
                             //     verifyToken: res.data.token,
                             //     user: {
                             //         firstName: res.data._doc.firstName,
                             //         lastName: res.data._doc.lastName,
                             //         email: res.data._doc.email
                             //     },
+                            //     newLogin: true
                             // }));
                             await storeLoginToken(res.data.token, 30);
-                            successMessage(<div className='font-vazirmatn'>ورود شما با موفقیت انجام شد</div>);
-                            await Router.push('/');
+                            
+                            await mutate(res.data);
+                            // successMessage(<div className='font-vazirmatn'>ورود شما با موفقیت انجام شد</div>);
+                            // await Router.push('/');
                             return <></>
                         }
 
@@ -73,13 +77,13 @@ const FormComponent: React.FC = () => {
                 <Link href="/">
                     <a>
                         <button type="submit" name="submit"
-                            className="px-3 rounded text-white text-center bg-red-500 font-bold drop-shadow hover:bg-red-600 active:bg-red-700 focus:ring focus:ring-red-300  mx-1">
+                            className="transition-all px-3 py-1 rounded text-white text-center bg-red-500 font-bold drop-shadow hover:bg-red-600 active:bg-red-700 focus:ring focus:ring-red-300  mx-1">
                             بازگشت
                         </button>
                     </a>
                 </Link>
                 <button type="submit" name="submit"
-                    className="px-3 rounded text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300  mx-1">
+                    className="transition-all px-3 py-1 rounded text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300  mx-1">
                     ورود
                 </button>
                 {loading && <Loading text={"در حال ارسال اطلاعات ..."} />}

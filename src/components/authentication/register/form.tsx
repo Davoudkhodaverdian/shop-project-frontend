@@ -84,13 +84,13 @@ const RegisterForm = () => {
                 <Link href="/">
                     <a>
                         <button type="submit" name="submit"
-                            className="px-3 rounded text-white text-center bg-red-500 font-bold drop-shadow hover:bg-red-600 active:bg-red-700 focus:ring focus:ring-red-300  mx-1">
+                            className="transition-all px-3 py-1 rounded text-white text-center bg-red-500 font-bold drop-shadow hover:bg-red-600 active:bg-red-700 focus:ring focus:ring-red-300  mx-1">
                             بازگشت
                         </button>
                     </a>
                 </Link>
                 <button type="submit" name="submit"
-                    className="px-3 rounded text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300  mx-1">
+                    className=" transition-all px-3  py-1 rounded text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300  mx-1">
                     ثبت نام
                 </button>
                 {loading && <Loading text={"در حال ارسال اطلاعات ..."} />}

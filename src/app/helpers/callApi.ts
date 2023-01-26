@@ -13,6 +13,7 @@ const callApi = ()=> {
     // Add a request interceptor
     axiosInstance.interceptors.request.use((config) => {
         // Do something before request is sent
+        config.withCredentials = true // for httpOnly
         return config;
     }, (error) => {
         // Do something with request error
@@ -25,7 +26,7 @@ const callApi = ()=> {
         // Do something with response data
         return response;
     }, (error) => {
-        //console.log(error);
+        // console.log(error);
         const res = error?.response;
          
         if (res) {

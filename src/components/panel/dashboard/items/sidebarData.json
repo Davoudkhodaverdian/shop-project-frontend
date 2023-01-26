@@ -1,0 +1,14 @@
+[
+    {
+        "descreption": "صفحه اصلی",
+        "name": "main-page",
+        "id": 1,
+        "root": "/"
+    },
+    {
+        "descreption": "صفحه عادی",
+        "name": "no-subject",
+        "id": 2,
+        "root": "/"
+    }
+]

@@ -2,11 +2,13 @@ import React, { useState, useEffect,useRef } from 'react'
 
 const BackToTop: React.FC = () => {
 
-    const [isShow, setIsShow] = useState(true)
+    const [isShow, setIsShow] = useState(false)
     const RefButton : any= useRef(null);
 
     useEffect(() => {
+       window.pageYOffset > 100 ? setIsShow(true) : setIsShow(false)
         window.addEventListener('scroll', () => {
+            console.log("scroll",window.pageYOffset)
             window.pageYOffset > 100 ? setIsShow(true) : setIsShow(false)
         })
     }, []);

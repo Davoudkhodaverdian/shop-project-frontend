@@ -1,14 +1,16 @@
 import React from "react";
+import Dashbord from "./dashboard";
 import UserInfo from "./userInfo";
 
 const Panel: React.FC = () => {
 
 
     return (
-        <div className="lg:max-w-[80%] mx-auto ">
-            <div>Panel</div>
+        <div>
             <div>
-                <UserInfo/>
+                <Dashbord>
+                    <UserInfo />
+                </Dashbord>
             </div>
         </div>
     )

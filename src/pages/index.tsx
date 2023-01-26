@@ -1,11 +1,12 @@
 import Head from 'next/head';
 import Home from './../components/home';
 import { axiosAPI } from '../app/lib/api';
-import { useAppDispatch } from '../app/hooks';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { setProducts } from '../app/store/productsSlice';
 import { NextPageWithLayout } from './_app';
 import GuestLayout from '../components/layouts/guestLayout';
 import { useEffect } from 'react';
+import Router  from 'next/router';
 
 interface Props { props: { data: any } }
 
@@ -17,6 +18,12 @@ const HomePage: NextPageWithLayout<Props> = ({ props }) => {
     dispatch(setProducts(props.data));
 
   })
+  
+  //const token = useAppSelector((state) => state.auth.verifyToken);
+  // if (token) {
+  //     Router.push('/panel');
+  //     return <></>
+  // }
 
   return (
     <div>

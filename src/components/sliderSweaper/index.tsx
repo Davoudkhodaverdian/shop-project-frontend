@@ -18,8 +18,8 @@ const SliderSweaper = () => {
           modules={[Autoplay, Navigation, Pagination]}
           spaceBetween={50}
           slidesPerView={1}
-          onSlideChange={() => console.log('slide change')}
-          onSwiper={(swiper) => console.log(swiper)}
+          onSlideChange={() => {}}
+          onSwiper={(swiper) => {}}
           autoplay={{ delay: 3000 }}
           navigation
 

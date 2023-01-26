@@ -10,7 +10,7 @@ const Register: React.FC = () => {
                 <div className='w-full'>
                     <div className='flex'>
                         <div className='flex  items-center'><img src="/images/logos/logo.svg" width={50} alt="logo" /></div>
-                        <div className='flex  items-center'><img src="/images/logos/nextLogo.svg" width={50} alt="logo" /></div>
+                        <div className='flex  items-center'><img src="/images/logos/next-logo.svg" width={50} alt="logo" /></div>
                     </div>
                     <h2 className="mt-6 text-3xl font-extrabold text-gray-900 text-right">ورود</h2>
                     <Form />

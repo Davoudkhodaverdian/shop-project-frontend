@@ -10,13 +10,13 @@ import { NextPageWithLayout } from '../_app';
 
 const RegisterPage: NextPageWithLayout = () => {
 
-  const token = useAppSelector((state: RootState) => state.auth.verifyToken);
-  const rooter = useRouter();
+  // const token = useAppSelector((state: RootState) => state.auth.verifyToken);
+  // const rooter = useRouter();
 
-  useEffect(() => {
-    if (token) rooter.push('/');
+  // useEffect(() => {
+  //   if (token) rooter.push('/');
 
-  },[token]);
+  // },[token]);
 
   return (
     <div dir='rtl' >

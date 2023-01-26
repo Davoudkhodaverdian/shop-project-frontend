@@ -5,17 +5,29 @@ import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from '../../../../app/hooks';
 import { setAuth } from '../../../../app/store/auth';
+import Cookies from 'universal-cookie';
+import { removeLoginToken } from '../../../../app/helpers/auth';
+import Router from 'next/router';
+import useAuth from '../../../../app/hooks/useAuth';
+import Auth from '../../../models/auth';
 
 
 const MaterialUIMenu: React.FC<any> = ({ children }) => {
 
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(false);                                                                                                                                                                                                    
     const anchorRef: React.MutableRefObject<null> = React.useRef(null);
+    const { mutate } = useAuth();
     const dispatch = useAppDispatch();
     const { t } = useTranslation();
-    const exit = () => {
+    const exit = async () => {
         setOpen(false);
-        dispatch(setAuth({ verifyToken: '', user: null }))
+        // logout with redux
+        // dispatch(setAuth({ verifyToken: '', user: null, newLogin: false }));
+        // logout with swr
+        await removeLoginToken();
+        await mutate({ verifyToken: '', user: null, newLogin: false } as any)
+        // await Router.push('/');
+
     }
 
     const handleToggle = () => { setOpen((prevOpen) => !prevOpen) };

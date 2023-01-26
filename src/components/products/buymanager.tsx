@@ -14,7 +14,6 @@ const Buymanager: React.FC<Props> = ({ item }) => {
         !!shoppingBag.find(i => i.id === item.id) ? shoppingBag.find(i => i.id === item.id).number : 0
     );
 
-    // console.log("Buymanager",shoppingBag);
     const dispatch = useAppDispatch();
 
     const HandleShoppingBag = () => {

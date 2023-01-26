@@ -3,7 +3,8 @@ import Auth from "../../components/models/auth";
 
 const initialState: Auth = {
     verifyToken: '',
-    user: null
+    user: null,
+    newLogin: false
 }
 
 const authSlice = createSlice({
@@ -14,9 +15,12 @@ const authSlice = createSlice({
             state = action.payload;
             return state;
         },
+        clearNewLogin: (state)=>{
+            state.newLogin = false
+        }
     }
 })
 
-export const { setAuth } = authSlice.actions;
+export const { setAuth,clearNewLogin } = authSlice.actions;
 
 export default authSlice.reducer;
