@@ -4,9 +4,8 @@ import { RootState } from "../../app/store";
 import { clearNewLogin } from "../../app/store/auth";
 import { successMessage } from "../../app/utilities/notifications";
 
-
 const UserInfo: React.FC = () => {
-    
+
     // useAuth way
     const { user } = useAuth();
 
@@ -22,7 +21,7 @@ const UserInfo: React.FC = () => {
     return (
         <div className="lg:max-w-[80%] mx-auto ">
             <div>User Info</div>
-            {`${user?.firstName} ${user?.lastName}`}
+            <div>{`${user?.firstName} ${user?.lastName}`}</div>
         </div>
     )
 }

@@ -6,7 +6,8 @@ interface Props {
     children: ReactNode
 }
 
-const Dashbord : React.FC<Props> = ({ children }) => {
+
+const Dashbord: React.FC<Props> = ({ children }) => {
 
     return (
         <div className='pr-0 flex flex-row dark:bg-slate-800 dark:text-white'>
