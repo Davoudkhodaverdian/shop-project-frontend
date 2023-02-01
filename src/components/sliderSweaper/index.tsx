@@ -1,9 +1,9 @@
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper';
-import ImageData from './imageData.json'
+import ImageData from './imageData.json';
 // Import Swiper styles
-import 'swiper/css/bundle';
-import 'swiper/css/autoplay';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 const SliderSweaper = () => {
 
@@ -12,22 +12,18 @@ const SliderSweaper = () => {
     <div>
       <div>
         <div>
-          {/* <button onClick={() => swiper.slideNext()}>Slide to the next slide</button> */}
         </div>
         <Swiper
-          modules={[Autoplay, Navigation, Pagination]}
+          modules={[Autoplay,Pagination]}
           spaceBetween={50}
           slidesPerView={1}
-          onSlideChange={() => {}}
-          onSwiper={(swiper) => {}}
-          autoplay={{ delay: 3000 }}
-          navigation
-
+          autoplay={{ delay: 3000,disableOnInteraction: false }}
+          pagination={true}
         >
           {ImageData.map(item => (
             <SwiperSlide key={item.id}>
               <section
-                className="w-full mx-auto flex pt-12 md:pt-0 md:items-center bg-cover bg-right shadow-inner"
+                className="w-full mx-auto grid pt-12 md:pt-0 md:items-center bg-cover bg-right shadow-inner cursor-grab active:cursor-grabbing"
                 style={{
                   height: "32rem",
                   // backgroundImage: 'url("/images/slide/open-chair-slide1.jpeg")',
@@ -49,6 +45,7 @@ const SliderSweaper = () => {
                 </div>
               </section>
             </SwiperSlide>
+          
           ))}
         </Swiper>
 
