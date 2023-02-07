@@ -8,6 +8,7 @@ import Loading from '../../loading';
 import Router, { useRouter } from 'next/router';
 import useAuth from '../../../app/hooks/useAuth';
 import Dashbord from './dashboard';
+import Profile from '../../navbar/profile';
 
 interface Props {
     children: ReactNode

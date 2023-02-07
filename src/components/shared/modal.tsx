@@ -20,9 +20,11 @@ const ModalMUI: React.FC<Props> = ({ open, handleModal, children }) => {
                 closeAfterTransition
             >
                 <Fade in={open}>
-                        <div className="overflow-auto absolute top-[50%] left-[50%] p-4 rounded-md translate-x-[-50%]  translate-y-[-50%] shadow bg-white">
+                    <div className="absolute    top-[50%] left-[50%]   translate-x-[-50%]  translate-y-[-50%] w-full md:w-3/4 lg:w-1/2">
+                        <div className="bg-white mx-3 md:mx-0 p-4 rounded-md shadow">
                             {children}
                         </div>
+                    </div>
                 </Fade>
             </Modal>
         </div>

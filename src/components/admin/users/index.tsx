@@ -1,31 +1,100 @@
+import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import ModalMUI from "../../shared/modal";
+import Table from "./table";
 
 const Users: React.FC = () => {
 
-    const [open, setOpen] = React.useState(false);
-    const handleModal = (open: boolean) => { setOpen(open); };
+    // manage modal with state
+    // const [open, setOpen] = React.useState<boolean>(false);
+    // const handleModal = (open: boolean) => { setOpen(open); };
+
+    // manage modal with router
+    const router = useRouter();
+    const handleModal = (open: boolean) => {
+        router.push(`/admin/users${open ? '?create-user' : ''}`);
+    };
+    const open = router.asPath === "/admin/users?create-user" || router.asPath === "/admin/users/create";
+
+
     return (
         <div>
             <div className="my-3">Users</div>
-            <div>
-                <button onClick={() => handleModal(true)}
-                    className="transition-all px-3 py-1 rounded text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300  mx-1">
-                    add user
-                </button>
+            <div className="my-3">
+                <Link href="/admin/users?create-user" as="/admin/users/create">
+                    <a className="transition-all px-3 py-1 rounded text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300  ">
+                        add user
+                    </a>
+                </Link>
+            </div>
+            <div className="my-3">
+                <Table />
             </div>
             <ModalMUI open={open} handleModal={handleModal} >
-                <figure className="md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800">
-                    <div className="pt-6 md:p-8 text-center md:text-left space-y-4">
-                        <blockquote>
-                            <p className="text-lg font-medium">
-                                “Tailwind CSS is the only framework that I've seen scale
-                                on large teams. It’s easy to customize, adapts to any design,
-                                and the build size is tiny.”
-                            </p>
-                        </blockquote>
-                    </div>
-                </figure>
+                <div className="mt-5 md:col-span-2 md:mt-0">
+                    <form action="#" method="POST">
+                        <div className="overflow-hidden  sm:rounded-md">
+                            <div className="bg-white px-4 py-5 sm:p-6">
+                                <div className="grid grid-cols-6 gap-6">
+                                    <div className="col-span-6 lg:col-span-3">
+                                        <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">
+                                            First name
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="first-name"
+                                            id="first-name"
+                                            autoComplete="given-name"
+                                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500" placeholder="First name"
+                                        />
+                                    </div>
+
+                                    <div className="col-span-6 lg:col-span-3">
+                                        <label htmlFor="last-name" className="block text-sm font-medium text-gray-700">
+                                            Last name
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="last-name"
+                                            id="last-name"
+                                            autoComplete="family-name"
+                                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500" placeholder="Last name"
+                                        />
+                                    </div>
+
+                                    <div className="col-span-6 ">
+                                        <label htmlFor="email-address" className="block text-sm font-medium text-gray-700">
+                                            Email address
+                                        </label>
+                                        <input
+                                            type="email"
+                                            name="email-address"
+                                            id="email-address"
+                                            autoComplete="email"
+                                            placeholder="Email address"
+                                            className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
+                                <button onClick={() => handleModal(false)}
+                                    type="button"
+                                    className="mr-3 inline-flex justify-center rounded-md border border-transparent text-indigo-600 bg-white border-indigo-600 py-2 px-4 text-sm font-medium  shadow-sm hover:text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                >
+                                    cancel
+                                </button>
+                                <button
+                                    type="submit"
+                                    className=" inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                >
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </ModalMUI>
         </div>
     )

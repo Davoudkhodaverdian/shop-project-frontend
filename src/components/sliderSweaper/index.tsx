@@ -10,47 +10,42 @@ const SliderSweaper = () => {
   //const swiper = useSwiper();
   return (
     <div>
-      <div>
-        <div>
-        </div>
-        <Swiper
-          modules={[Autoplay,Pagination]}
-          spaceBetween={50}
-          slidesPerView={1}
-          autoplay={{ delay: 3000,disableOnInteraction: false }}
-          pagination={true}
-        >
-          {ImageData.map(item => (
-            <SwiperSlide key={item.id}>
-              <section
-                className="w-full mx-auto grid pt-12 md:pt-0 md:items-center bg-cover bg-right shadow-inner cursor-grab active:cursor-grabbing"
-                style={{
-                  height: "32rem",
-                  // backgroundImage: 'url("/images/slide/open-chair-slide1.jpeg")',
-                  backgroundImage: `url("/images/slide/${item.image}")`,
-                }}
-              >
-                <div className="container mx-auto">
-                  <div className="flex flex-col w-full lg:w-1/2 justify-center items-start  px-6 tracking-wide">
-                    <h1 className="text-black text-2xl bg-white rounded font-bold py-2 px-4">
+      <Swiper
+        modules={[Autoplay, Pagination]}
+        spaceBetween={50}
+        slidesPerView={1}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        pagination={{
+          clickable: true
+        }}
+      >
+        {ImageData.map(item => (
+          <SwiperSlide key={item.id}>
+            <section
+              className="shadow-inner cursor-grab active:cursor-grabbing"
+            >
+              <div className=' flex flex-col items-center'>
+                <div className='relative'>
+                  <img src={`/images/slide/${item.image}`} alt={`${item.image}`} />
+
+                  <div className=" absolute top-0 right-0 m-2  px-6 tracking-wide">
+                    <h1 className="text-black text-sm  md:text-2xl bg-white rounded font-bold py-2 ">
                       فروشگاه محصولات دیجیتال
                     </h1>
                     <a
-                      className="text-xl bg-black text-white px-2 rounded mt-4 inline-block border-gray-600 leading-relaxed hover:bg-gray-200 hover:text-black"
+                      className="text-xs md:text-xl bg-black text-white px-2 rounded mt-1 md:mt-4 inline-block border-gray-600 leading-relaxed hover:bg-gray-200 hover:text-black"
                       href="#"
                     >
                       مشاهده محصولات
                     </a>
                   </div>
                 </div>
-              </section>
-            </SwiperSlide>
-          
-          ))}
-        </Swiper>
+              </div>
+            </section>
+          </SwiperSlide>
 
-      </div>
-
+        ))}
+      </Swiper>
     </div>
   );
 };

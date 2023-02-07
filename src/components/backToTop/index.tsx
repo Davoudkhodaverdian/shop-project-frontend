@@ -8,7 +8,7 @@ const BackToTop: React.FC = () => {
     useEffect(() => {
        window.pageYOffset > 100 ? setIsShow(true) : setIsShow(false)
         window.addEventListener('scroll', () => {
-            console.log("scroll",window.pageYOffset)
+            
             window.pageYOffset > 100 ? setIsShow(true) : setIsShow(false)
         })
     }, []);
