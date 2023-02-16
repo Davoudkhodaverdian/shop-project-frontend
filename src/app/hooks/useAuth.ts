@@ -7,8 +7,8 @@ const cookies = new Cookies();
 const useAuth = () => {
 
     const { data, error,mutate } = useSWR('user-auth', () => {
-        // httpOnly way
         
+        // httpOnly way
         return callApi().get('/user')
 
         // not httpOnly way
@@ -19,7 +19,7 @@ const useAuth = () => {
         // })
     })
 
-    if (error) console.log(error);
+    if (error?.response?.status !== 403 && (data || error)) console.log(error);
     
     return { user: data?.data?.user, error, loading: !data && !error,mutate }
 

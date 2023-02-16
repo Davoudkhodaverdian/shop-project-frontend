@@ -1,0 +1,28 @@
+import React from "react";
+import { useAppSelector } from '../../../../app/hooks';
+import { RootState } from "../../../../app/store";
+import MinusPlus from "./minusPlus";
+import Add from "./add";
+import AddedDescription from "./addedDescrption";
+
+interface Props { item: any }
+const Buymanager: React.FC<Props> = ({ item }) => {
+
+    const shoppingBag = useAppSelector((state: RootState) => state.shoppingBag);
+    const picked = shoppingBag.find(i => i.id === item.id);
+
+    return (
+        <>
+            <div className="flex justify-between flex-shrink-0 items-center">
+                <div>
+                    <span className="py-2 text-gray-900">{item?.price} <span className="text-sm">تومان</span></span>
+                </div>
+                {picked && <MinusPlus  item={ item }/>}
+            </div>
+            { !picked ? <Add item={ item }/> : <AddedDescription/>}
+        </>
+    )
+
+}
+
+export default Buymanager;

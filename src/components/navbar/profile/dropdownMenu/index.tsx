@@ -1,18 +1,19 @@
-import React from 'react';
-import ClickAwayListener from '@mui/material/ClickAwayListener';
-import MenuList from '@mui/material/MenuList';
+import React, { ReactNode } from 'react';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from '../../../../app/hooks';
 import { setAuth } from '../../../../app/store/auth';
-import Cookies from 'universal-cookie';
 import { removeLoginToken } from '../../../../app/helpers/auth';
 import Router from 'next/router';
 import useAuth from '../../../../app/hooks/useAuth';
-import Auth from '../../../models/auth';
+import { mutate } from 'swr';
+import { ClickAwayListener, MenuList } from '@mui/material';
 
+interface Props {
+    children: ReactNode
+}
 
-const MaterialUIMenu: React.FC<any> = ({ children }) => {
+const DropdownMenu: React.FC<Props> = ({ children }) => {
 
     const [open, setOpen] = React.useState(false);                                                                                                                                                                                                    
     const anchorRef: React.MutableRefObject<null> = React.useRef(null);
@@ -61,7 +62,7 @@ const MaterialUIMenu: React.FC<any> = ({ children }) => {
 
     return (
         <>
-            <div className='flex justify-center items-center cursor-pointer hover-active-item-navbar'
+            <div className='flex justify-center items-center cursor-pointer hover-navbar'
                 ref={anchorRef} onClick={handleToggle}>
                 {children}
                 <div className='flex'>
@@ -75,10 +76,10 @@ const MaterialUIMenu: React.FC<any> = ({ children }) => {
                         <ul className='flex flex-col'>
                             <Link href="/panel">
                                 <a>
-                                    <li className='px-2 cursor-pointer py-3 hover-active-item-navbar flex'>{t('panel')}</li>
+                                    <li className='px-2 cursor-pointer py-3 hover-navbar flex'>{t('panel')}</li>
                                 </a>
                             </Link>
-                            <li className='p-1 cursor-pointer py-3 hover-active-item-navbar flex' onClick={exit} >
+                            <li className='p-1 cursor-pointer py-3 hover-navbar flex' onClick={exit} >
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
                                 </svg>
@@ -93,4 +94,4 @@ const MaterialUIMenu: React.FC<any> = ({ children }) => {
     );
 }
 
-export default MaterialUIMenu;
+export default DropdownMenu;

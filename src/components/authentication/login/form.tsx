@@ -10,7 +10,7 @@ import { useAppDispatch } from '../../../app/hooks'
 import { setAuth } from "../../../app/store/auth";
 import Router from "next/router";
 import React, { useState } from "react";
-import Loading from "../../loading";
+import Loading from "../../shared/loading";
 import { errorMessage, successMessage } from '../../../app/utilities/notifications';
 import { storeLoginToken } from '../../../app/helpers/auth';
 import useAuth from '../../../app/hooks/useAuth';

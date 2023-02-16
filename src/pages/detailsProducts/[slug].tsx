@@ -1,9 +1,9 @@
 import Head from 'next/head';
-import DetailsProducts from '../../components/products/detailsProducts';
 import { axiosAPI } from '../../app/lib/api';
 import { useRouter } from 'next/router';
 import { NextPageWithLayout } from '../_app';
 import GuestLayout from '../../components/layouts/guestLayout';
+import DetailsProducts from '../../components/home/products/detailsProducts';
 
 const DetailsProductsPage: NextPageWithLayout = ({ props }: any) => {
 

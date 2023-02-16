@@ -4,7 +4,7 @@ import styles from './../../../styles/Home.module.css';
 import BackToTop from '../../backToTop';
 import Navbar from '../../navbar';
 import { motion } from 'framer-motion';
-import Loading from '../../loading';
+import Loading from '../../shared/loading';
 import Router, { useRouter } from 'next/router';
 import useAuth from '../../../app/hooks/useAuth';
 import Dashbord from './dashboard';
@@ -20,7 +20,13 @@ const AdminLayout: React.FC<Props> = ({ children }) => {
     // managing auth with swr start
     const { user, loading, error } = useAuth()
     if (loading) return <Loading justSpinner={true} fullPage={true} />
-    console.log({ user, loading, error });
+    // useEffect(() => {
+    if (!user?.isAdmin) {
+        if (user) Router.push('/panel');
+        else Router.push('/');
+        return <></>
+    }
+    // }, [user]);
     // managing auth with swr end
 
     // managing auth with redux start

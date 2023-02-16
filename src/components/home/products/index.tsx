@@ -1,7 +1,7 @@
 import React from "react";
 import ProductCard from "./ProductCard";
-import { useAppSelector } from '../../app/hooks'
-import { RootState } from "../../app/store";
+import { useAppSelector } from '../../../app/hooks'
+import { RootState } from "../../../app/store";
 
 const Products = () => {
 

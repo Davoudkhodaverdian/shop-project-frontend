@@ -4,8 +4,8 @@ import styles from '../../styles/Home.module.css';
 import BackToTop from '../backToTop';
 import Navbar from '../navbar';
 import { motion } from 'framer-motion';
-import Loading from '../loading';
-import Router,{ useRouter } from 'next/router';
+import Loading from '../shared/loading';
+import Router, { useRouter } from 'next/router';
 import useAuth from '../../app/hooks/useAuth';
 import { useAppSelector } from '../../app/hooks';
 import { RootState } from '../../app/store';
@@ -20,9 +20,17 @@ const UserLayout: React.FC<Props> = ({ children }) => {
 
 
     // managing auth with swr start
-    const { user, loading, error } = useAuth()
+    const { user, loading, error } = useAuth();
     if (loading) return <Loading justSpinner={true} fullPage={true} />
-    console.log({ user, loading, error });
+
+    // useEffect(() => {
+        if (!user){
+             Router.replace("/");
+             return <></>
+            }
+    // }, [user]);
+
+
     // managing auth with swr end
 
     // managing auth with redux start
@@ -40,12 +48,9 @@ const UserLayout: React.FC<Props> = ({ children }) => {
     // loading for render process end
     // managing auth with redux end
 
-    if (!user) {
-        Router.push('/');
-        return <></>
-    }
+
     console.log("UserLayout");
-    console.log('user',user)
+
     return (
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1, }, }}>

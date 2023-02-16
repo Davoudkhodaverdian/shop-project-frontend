@@ -6,7 +6,7 @@ import Navbar from '../navbar';
 import { motion } from 'framer-motion';
 import useAuth from '../../app/hooks/useAuth';
 import Router, { useRouter } from 'next/router';
-import Loading from '../loading';
+import Loading from '../shared/loading';
 import { RootState } from '../../app/store';
 import { useAppSelector } from '../../app/hooks';
 
@@ -18,9 +18,15 @@ interface Props {
 const GuestLayout: React.FC<Props> = ({ children }) => {
 
     // managing auth with swr start
-    const { user, loading, error } = useAuth()
+    const { user, loading, error } = useAuth();
     if (loading) return <Loading justSpinner={true} fullPage={true} />
-    console.log({ user, loading, error });
+
+    // useEffect(() => {
+        if (user) {
+            Router.replace("/panel");
+            return <></>
+        }
+    // }, [user]);
     // managing auth with swr end
 
     // managing auth with redux start
@@ -38,10 +44,6 @@ const GuestLayout: React.FC<Props> = ({ children }) => {
     // loading for render process end
     // managing auth with redux end
 
-    if (user) {
-        Router.push('/panel');
-        return <></>
-    }
 
     console.log("GuestLayout")
     return (

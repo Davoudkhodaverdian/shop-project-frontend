@@ -11,7 +11,7 @@ import ValidationError from "../../../app/exceptions/validationError";
 import { useAppDispatch } from '../../../app/hooks'
 import { setAuth } from "../../../app/store/auth";
 import { useState } from 'react';
-import Loading from '../../loading';
+import Loading from '../../shared/loading';
 import { useTranslation } from 'react-i18next';
 import { errorMessage, successMessage } from '../../../app/utilities/notifications';
 import { storeLoginToken } from '../../../app/helpers/auth';
