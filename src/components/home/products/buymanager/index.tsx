@@ -14,7 +14,7 @@ const Buymanager: React.FC<Props> = ({ item }) => {
     return (
         <>
             <div className="flex justify-between flex-shrink-0 items-center">
-                <div>
+                <div className="px-2">
                     <span className="py-2 text-gray-900">{item?.price} <span className="text-sm">تومان</span></span>
                 </div>
                 {picked && <MinusPlus  item={ item }/>}

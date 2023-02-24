@@ -5,6 +5,8 @@ import UserLayout from '../../components/layouts/userLayout';
 
 import { NextPageWithLayout } from '../_app';
 import Products from '../../components/navbar/neccessaryItems/purchasePreview/products';
+import Cart from '../../components/cart';
+import MainLayout from '../../components/layouts/mainLayout';
 
 
 const CartPage: NextPageWithLayout = () => {
@@ -23,11 +25,11 @@ const CartPage: NextPageWithLayout = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <Products/>
+        <Cart/>
       </div>
     </div>
   )
 }
-
-CartPage.getLayout = (page) => (<UserLayout>{page}</UserLayout>);
+// CartPage.getLayout = (page) => (<UserLayout>{page}</UserLayout>);
+CartPage.getLayout = (page) => (<MainLayout>{page}</MainLayout>);
 export default CartPage

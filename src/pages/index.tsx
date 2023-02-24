@@ -7,6 +7,7 @@ import { NextPageWithLayout } from './_app';
 import GuestLayout from '../components/layouts/guestLayout';
 import { useEffect } from 'react';
 import Router  from 'next/router';
+import MainLayout from '../components/layouts/mainLayout';
 
 interface Props { props: { data: any } }
 
@@ -36,7 +37,8 @@ const HomePage: NextPageWithLayout<Props> = ({ props }) => {
     </div>
   )
 }
-HomePage.getLayout = (page) => (<GuestLayout>{page}</GuestLayout>);
+// HomePage.getLayout = (page) => (<GuestLayout>{page}</GuestLayout>);
+HomePage.getLayout = (page) => (<MainLayout>{page}</MainLayout>);
 HomePage.getInitialProps = async () => {
 
   const { data } = await axiosAPI("/products", "get", { populate: "*" });

@@ -22,10 +22,7 @@ const storeLoginToken = async (token: string, days: number) => {
 }
 
 const removeLoginToken = async () => {
-    // not httpOnly way
-    // const cookies = new Cookies();
-    // cookies.remove('shop-token');
-
+    
     // httpOnly way
     await fetch('/api/logout', {
         method: 'POST',
@@ -33,6 +30,11 @@ const removeLoginToken = async () => {
             'Content-Type': 'application/json'
         }
     })
+
+    // not httpOnly way
+    // const cookies = new Cookies();
+    // cookies.remove('shop-token');
+
 
 }
 

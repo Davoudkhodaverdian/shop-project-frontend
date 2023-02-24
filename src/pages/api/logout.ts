@@ -17,6 +17,7 @@ export default function handler(
     sameSite: 'lax',
     path: '/',
     domain: process.env.NODE_ENV === 'development' ? 'localhost' : process.env.NEXT_APP_DOMAIN
+    // domain: process.env.NEXT_APP_DOMAIN // just production
   }))
   res.status(200).json({ status: 'success' })
 }

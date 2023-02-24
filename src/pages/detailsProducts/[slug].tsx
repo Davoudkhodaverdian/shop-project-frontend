@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { NextPageWithLayout } from '../_app';
 import GuestLayout from '../../components/layouts/guestLayout';
 import DetailsProducts from '../../components/home/products/detailsProducts';
+import MainLayout from '../../components/layouts/mainLayout';
 
 const DetailsProductsPage: NextPageWithLayout = ({ props }: any) => {
 
@@ -28,7 +29,8 @@ const DetailsProductsPage: NextPageWithLayout = ({ props }: any) => {
     </div>
   )
 }
-DetailsProductsPage.getLayout = (page) => (<GuestLayout>{page}</GuestLayout>);
+// DetailsProductsPage.getLayout = (page) => (<GuestLayout>{page}</GuestLayout>);
+DetailsProductsPage.getLayout = (page) => (<MainLayout>{page}</MainLayout>);
 DetailsProductsPage.getInitialProps = async (params: any) => {
 
   const { slug } = params.query;

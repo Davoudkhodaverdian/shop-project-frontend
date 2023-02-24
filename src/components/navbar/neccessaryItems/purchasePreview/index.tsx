@@ -4,6 +4,8 @@ import Products from "./products";
 import { ClickAwayListener, MenuList } from "@mui/material";
 import Link from "next/link";
 import useAuth from "../../../../app/hooks/useAuth";
+import PageLink from "./pageLink";
+import CalculatePrice from "./calculatePrice";
 
 
 const PurchasePreview: React.FC = () => {
@@ -47,6 +49,7 @@ const PurchasePreview: React.FC = () => {
             <ClickAwayListener onClickAway={handleClose}>
                 <MenuList className='' autoFocusItem={open} onKeyDown={handleListKeyDown}>
                     <div className={`${open ? "transform opacity-100 z-10" : "transform opacity-0 z-[-1]"} left-0 w-full md:w-96  transition-all absolute  mt-2 origin-top-right divide-y divide-gray-100 rounded-sm bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none border p-1 md:top-7 md:left-0 top-0 `}>
+                        <PageLink/>
                         <Products />
                     </div>
                 </MenuList>

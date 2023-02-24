@@ -19,6 +19,7 @@ const Register: React.FC = () => {
                         language="fa"
                     > */}
                     <Form />
+
                     {/* </GoogleReCaptchaProvider> */}
                 </div>
                 <div className='w-[800px] md:flex flex-col justify-center items-center hidden p-3'>
