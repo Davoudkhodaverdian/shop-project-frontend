@@ -7,6 +7,12 @@ const nextConfig = {
       unoptimized: true,
     },
   },
+  env: {
+    NEXT_APP_API: process.env.NEXT_APP_API,
+    NEXT_APP_STRAPI_API: process.env.NEXT_APP_STRAPI_API,
+    NEXT_APP_DOMAIN: process.env.NEXT_APP_DOMAIN,
+    
+  }
 }
 
 module.exports = nextConfig

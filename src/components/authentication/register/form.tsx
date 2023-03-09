@@ -2,7 +2,7 @@
 import { Form, Formik } from 'formik';
 import Link from 'next/link';
 import Register from '../../models/register';
-import formData from './formData';
+import formData from './data.json';
 import TextItem from './textItem';
 import * as yup from 'yup';
 import callApi from '../../../app/helpers/callApi';
@@ -21,14 +21,13 @@ const RegisterForm = () => {
 
     const [loading, setLoading] = useState(false);
     const dispatch = useAppDispatch();
-    const initialValuesFormik: Register = { firstName: "", lastName: "", email: "", password: "", confirmPassword: "" };
+    const initialValuesFormik: Register = { firstName: "", lastName: "", email: "", password: "" };
     const { t } = useTranslation();
     let registerFormSchema = yup.object().shape({
         firstName: yup.string().required(),
         lastName: yup.string().required(),
         email: yup.string().required().email(),
-        password: yup.string().required().min(3),
-        confirmPassword: yup.string().required().min(3)
+        password: yup.string().required().min(3)
     })
 
     return (
@@ -39,9 +38,6 @@ const RegisterForm = () => {
                 async (values: Register, { setFieldError }) => {
                     try {
                         // console.log(values);
-
-                        if (values.confirmPassword !== values.password)
-                            return setFieldError("confirmPassword", t('validation.fields.confirmPasswordError'));
 
                         setLoading(true)
                         const { firstName, lastName, email, password } = values;
@@ -59,9 +55,9 @@ const RegisterForm = () => {
                             //     },
                             // }));
                             await storeLoginToken(res.data.token, 30);
-                            successMessage(<div className='font-vazirmatn'>ثبت نام شما با موفقیت انجام شد</div>);  
+                            successMessage(<div className='font-vazirmatn'>ثبت نام شما با موفقیت انجام شد</div>);
                             await Router.push('/');
-                            return <></> 
+                            return <></>
                         }
                     } catch (error: any) {
                         setLoading(false)

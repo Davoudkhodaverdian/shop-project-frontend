@@ -9,14 +9,14 @@ const useAuth = () => {
     const { data, error,mutate } = useSWR('user-auth', () => {
         
         // httpOnly way
-        return callApi().get('/user')
+        // return callApi().get('/user')
 
         // not httpOnly way
-        // return callApi().get('/user', {
-        //     headers: {
-        //         authorization: cookies.get('shop-token')
-        //     }
-        // })
+        return callApi().get('/user', {
+            headers: {
+                authorization: cookies.get('shop-token')
+            }
+        })
     })
 
     if (error?.response?.status !== 403 && (data || error)) console.log(error);

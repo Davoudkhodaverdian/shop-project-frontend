@@ -6,7 +6,7 @@ import Form from './form';
 const Register: React.FC = () => {
 
     return (
-        <div className="flex flex-col justify-center items-center my-10">
+        <div  className="flex flex-col justify-center items-center my-10">
             <div className="md:flex flex-row w-[calc(100%-16px)]  md:max-w-[800px] rounded shadow-lg p-4 bg-white  mx-2">
                 <div className='w-full'>
                     <div className='flex'>

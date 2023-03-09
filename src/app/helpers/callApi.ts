@@ -13,7 +13,7 @@ const callApi = ()=> {
     // Add a request interceptor
     axiosInstance.interceptors.request.use((config) => {
         // Do something before request is sent
-        config.withCredentials = true // for httpOnly
+        config.withCredentials = false // for httpOnly
         return config;
     }, (error) => {
         // Do something with request error

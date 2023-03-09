@@ -1,4 +1,4 @@
-import formData from './formData'
+import formData from './data.json'
 import { Formik, Form } from 'formik'
 import Login from "../../models/login";
 import TextItem from "./textItem";
