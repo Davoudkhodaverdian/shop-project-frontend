@@ -21,12 +21,21 @@ const AdminLayout: React.FC<Props> = ({ children }) => {
     const { user, loading, error } = useAuth()
     if (loading) return <Loading justSpinner={true} fullPage={true} />
     // useEffect(() => {
-    if (!user?.isAdmin) {
-        if (user) Router.push('/panel');
-        else Router.push('/');
+    // if (!user?.isAdmin) {
+    //     if (user) Router.push('/panel');
+    //     else Router.push('/');
+    //     return <></>
+    // }
+
+    if (!user) {
+        Router.push('/');
         return <></>
     }
+
     // }, [user]);
+
+
+
     // managing auth with swr end
 
     // managing auth with redux start
@@ -57,7 +66,7 @@ const AdminLayout: React.FC<Props> = ({ children }) => {
                 <Dashbord>
                     {children}
                 </Dashbord>
-                <footer className={styles.footer}><Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} /></footer>
+                {/* <footer className={styles.footer}><Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} /></footer> */}
                 <BackToTop />
             </div>
         </motion.div>

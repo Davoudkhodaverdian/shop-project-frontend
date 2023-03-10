@@ -6,22 +6,18 @@ import MenuMUI from './menuMUI';
 const DynamicMenubar: React.FC = () => {
 
     const [open, setOpen] = useState(false);
-    const toggleDrawer = (open : any) => (event : any) => {
+    const toggleDrawer = (open: any) => (event: any) => {
         if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-          return;
+            return;
         }
-    
+
         setOpen(open);
-      };
+    };
 
     return (
-        <div>
-            <div className='flex flex-col justify-center md:hidden'>
-                <div className='p-3'>
-                    <Button toggleDrawer={toggleDrawer} />
-                </div>
-                <MenuMUI toggleDrawer={toggleDrawer} open={open} />
-            </div>
+        <div className='px-3 flex items-center md:hidden'>
+            <Button toggleDrawer={toggleDrawer} />
+            <MenuMUI toggleDrawer={toggleDrawer} open={open} />
         </div>
     )
 }

@@ -46,7 +46,7 @@ const Users: React.FC = () => {
                                             name="first-name"
                                             id="first-name"
                                             autoComplete="given-name"
-                                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500" placeholder="First name"
+                                            className="appearance-none rounded relative block w-full px-3 py-2 my-1 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-violet-500 focus:border-violet-500" placeholder="First name"
                                         />
                                     </div>
 
@@ -59,7 +59,7 @@ const Users: React.FC = () => {
                                             name="last-name"
                                             id="last-name"
                                             autoComplete="family-name"
-                                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500" placeholder="Last name"
+                                            className="appearance-none rounded relative block w-full px-3 py-2 my-1 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-violet-500 focus:border-violet-500" placeholder="Last name"
                                         />
                                     </div>
 
@@ -73,7 +73,7 @@ const Users: React.FC = () => {
                                             id="email-address"
                                             autoComplete="email"
                                             placeholder="Email address"
-                                            className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500"
+                                            className="appearance-none rounded relative block w-full px-3 py-2 my-1 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-violet-500 focus:border-violet-500"
                                         />
                                     </div>
                                 </div>

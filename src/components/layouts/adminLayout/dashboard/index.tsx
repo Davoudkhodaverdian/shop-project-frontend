@@ -13,9 +13,10 @@ const Dashbord: React.FC<Props> = ({ children }) => {
     return (
         <div className='pr-0 flex flex-row dark:bg-slate-800 dark:text-white'>
             <Menubar />
-            <DynamicMenubar />
+            
             <div className='w-full'>
-                <div className='flex border-b p-1 py-3 border-[#eaeaea]'>
+                <div className='flex items-center border-b p-1 py-3 border-[#eaeaea]'>
+                    <DynamicMenubar />
                     <Profile />
                 </div>
                 <div className="flex flex-col w-full">

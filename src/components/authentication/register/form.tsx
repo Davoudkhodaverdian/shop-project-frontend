@@ -46,6 +46,7 @@ const RegisterForm = () => {
                         setLoading(false)
                         if (res.status === 200) {
 
+                            // store information with redux
                             // await dispatch(setAuth({
                             //     verifyToken: res.data.token,
                             //     user: {
@@ -54,6 +55,8 @@ const RegisterForm = () => {
                             //         email: res.data._doc.email
                             //     },
                             // }));
+
+                            // store information in cookie
                             await storeLoginToken(res.data.token, 30);
                             successMessage(<div className='font-vazirmatn'>ثبت نام شما با موفقیت انجام شد</div>);
                             await Router.push('/');
