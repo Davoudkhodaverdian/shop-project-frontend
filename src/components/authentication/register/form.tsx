@@ -42,7 +42,7 @@ const RegisterForm = () => {
                         setLoading(true)
                         const { firstName, lastName, email, password } = values;
                         const res: any = await callApi().post('/auth/register', { firstName, lastName, email, password });
-                        //console.log(res);
+                        console.log(res);
                         setLoading(false)
                         if (res.status === 200) {
 
@@ -57,10 +57,10 @@ const RegisterForm = () => {
                             // }));
 
                             // store information in cookie
-                            await storeLoginToken(res.data.token, 30);
-                            successMessage(<div className='font-vazirmatn'>ثبت نام شما با موفقیت انجام شد</div>);
-                            await Router.push('/');
-                            return <></>
+                            // await storeLoginToken(res.data.token, 30);
+                            // successMessage(<div className='font-vazirmatn'>ثبت نام شما با موفقیت انجام شد</div>);
+                            // await Router.push('/');
+                            // return <></>
                         }
                     } catch (error: any) {
                         setLoading(false)

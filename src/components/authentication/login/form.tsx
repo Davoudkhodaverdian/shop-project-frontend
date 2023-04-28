@@ -37,10 +37,12 @@ const FormComponent: React.FC = () => {
 
                         setLoading(true);
                         const res = await callApi().post('/auth/login', values);
+                        console.log(res)
                         setLoading(false);
 
                         if (res.status === 200) {
 
+                            // store information with redux
                             // dispatch(setAuth({
                             //     verifyToken: res.data.token,
                             //     user: {
@@ -50,12 +52,14 @@ const FormComponent: React.FC = () => {
                             //     },
                             //     newLogin: true
                             // }));
+
+                            // store information in cookie
                             await storeLoginToken(res.data.token, 30);
-                            
                             await mutate(res.data);
+
                             // successMessage(<div className='font-vazirmatn'>ورود شما با موفقیت انجام شد</div>);
                             // await Router.push('/');
-                            return <></>
+                            //return <></>
                         }
 
                     } catch (error: any) {
