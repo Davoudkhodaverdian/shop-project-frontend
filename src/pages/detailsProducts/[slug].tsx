@@ -31,12 +31,12 @@ const DetailsProductsPage: NextPageWithLayout = ({ props }: any) => {
 }
 // DetailsProductsPage.getLayout = (page) => (<GuestLayout>{page}</GuestLayout>);
 DetailsProductsPage.getLayout = (page) => (<MainLayout>{page}</MainLayout>);
-DetailsProductsPage.getInitialProps = async (params: any) => {
+// DetailsProductsPage.getInitialProps = async (params: any) => {
 
-  const { slug } = params.query;
-  const { data } = await axiosAPI(`/products`, "get", { populate: "*", filters: { slug } });
-  return { props: { data, slug } }
-}
+//   const { slug } = params.query;
+//   const { data } = await axiosAPI(`/products`, "get", { populate: "*", filters: { slug } });
+//   return { props: { data, slug } }
+// }
 
 export default DetailsProductsPage;
 

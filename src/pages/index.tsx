@@ -16,7 +16,7 @@ const HomePage: NextPageWithLayout<Props> = ({ props }) => {
   const dispatch = useAppDispatch();
 
   useEffect(()=>{
-    dispatch(setProducts(props.data));
+    dispatch(setProducts(props?.data));
 
   })
   
@@ -39,12 +39,12 @@ const HomePage: NextPageWithLayout<Props> = ({ props }) => {
 }
 // HomePage.getLayout = (page) => (<GuestLayout>{page}</GuestLayout>);
 HomePage.getLayout = (page) => (<MainLayout>{page}</MainLayout>);
-HomePage.getInitialProps = async () => {
+// HomePage.getInitialProps = async () => {
 
-  const { data } = await axiosAPI("/products", "get", { populate: "*" });
+//   const { data } = await axiosAPI("/products", "get", { populate: "*" });
 
-  return { props: { data, }, }
-}
+//   return { props: { data, }, }
+// }
 
 export default HomePage;
 
