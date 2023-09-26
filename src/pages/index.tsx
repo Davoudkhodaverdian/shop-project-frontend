@@ -12,7 +12,7 @@ import MainLayout from '../components/layouts/mainLayout';
 interface Props { props: { data: any } }
 
 const HomePage: NextPageWithLayout<Props> = ({ props }) => {
-
+ 
   const dispatch = useAppDispatch();
 
   useEffect(() => {
