@@ -4,11 +4,11 @@ import styles from '../../styles/Home.module.css';
 import BackToTop from '../backToTop';
 import Navbar from '../navbar';
 import { motion } from 'framer-motion';
-import useAuth from '../../app/hooks/useAuth';
+import useAuth from '../../fundamental/hooks/useAuth';
 import Router, { useRouter } from 'next/router';
 import Loading from '../shared/loading';
-import { RootState } from '../../app/store';
-import { useAppSelector } from '../../app/hooks';
+import { RootState } from '../../fundamental/store';
+import { useAppSelector } from '../../fundamental/hooks';
 
 interface Props {
     children: ReactNode

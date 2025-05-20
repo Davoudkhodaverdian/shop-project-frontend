@@ -1,9 +1,9 @@
 
 import React from 'react';
-import { setLanguage } from '../../../../app/store/languageSlice'
-import { RootState } from '../../../../app/store'
+import { setLanguage } from '../../../../fundamental/store/languageSlice'
+import { RootState } from '../../../../fundamental/store'
 import { useTranslation } from 'react-i18next';
-import { useAppSelector, useAppDispatch } from '../../../../app/hooks';
+import { useAppSelector, useAppDispatch } from '../../../../fundamental/hooks';
 
 const Language: React.FC = () => {
 

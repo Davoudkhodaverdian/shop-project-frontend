@@ -5,16 +5,16 @@ import Register from '../../models/register';
 import formData from './data.json';
 import TextItem from './textItem';
 import * as yup from 'yup';
-import callApi from '../../../app/helpers/callApi';
+import callApi from '../../../fundamental/helpers/callApi';
 import Router from 'next/router'
 import ValidationError from "../../../app/exceptions/validationError";
-import { useAppDispatch } from '../../../app/hooks'
-import { setAuth } from "../../../app/store/auth";
+import { useAppDispatch } from '../../../fundamental/hooks'
+import { setAuth } from "../../../fundamental/store/auth";
 import { useState } from 'react';
 import Loading from '../../shared/loading';
 import { useTranslation } from 'react-i18next';
-import { errorMessage, successMessage } from '../../../app/utilities/notifications';
-import { storeLoginToken } from '../../../app/helpers/auth';
+import { errorMessage, successMessage } from '../../../fundamental/utilities/notifications';
+import { storeLoginToken } from '../../../fundamental/helpers/auth';
 // import { GoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 const RegisterForm = () => {

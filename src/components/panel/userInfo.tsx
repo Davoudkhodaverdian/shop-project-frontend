@@ -1,8 +1,8 @@
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import useAuth from "../../app/hooks/useAuth";
-import { RootState } from "../../app/store";
-import { clearNewLogin } from "../../app/store/auth";
-import { successMessage } from "../../app/utilities/notifications";
+import { useAppDispatch, useAppSelector } from "../../fundamental/hooks";
+import useAuth from "../../fundamental/hooks/useAuth";
+import { RootState } from "../../fundamental/store";
+import { clearNewLogin } from "../../fundamental/store/auth";
+import { successMessage } from "../../fundamental/utilities/notifications";
 
 const UserInfo: React.FC = () => {
 

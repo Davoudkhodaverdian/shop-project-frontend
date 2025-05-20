@@ -1,4 +1,4 @@
-import { getStrapiImage } from "../../../app/lib/media";
+import { getStrapiImage } from "../../../fundamental/lib/media";
 import React from "react";
 import Buymanager from "./buymanager";
 import Link from "next/link";

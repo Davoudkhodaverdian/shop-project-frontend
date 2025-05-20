@@ -1,6 +1,6 @@
 import React from 'react';
-import { useAppDispatch } from '../../../../../app/hooks';
-import { addShoppingBag } from '../../../../../app/store/shoppingBagSlice';
+import { useAppDispatch } from '../../../../../fundamental/hooks';
+import { addShoppingBag } from '../../../../../fundamental/store/shoppingBagSlice';
 
 interface Props {
     item: any

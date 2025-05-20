@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { useAppSelector } from "../../../../../app/hooks";
-import { RootState } from "../../../../../app/store";
+import { useAppSelector } from "../../../../../fundamental/hooks";
+import { RootState } from "../../../../../fundamental/store";
 
 const CalculatePrice: React.FC = () => {
     const shoppingBag = useAppSelector((state: RootState) => state.shoppingBag);

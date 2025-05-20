@@ -1,5 +1,5 @@
 import Link from "next/link"
-import useAuth from "../../../../../app/hooks/useAuth";
+import useAuth from "../../../../../fundamental/hooks/useAuth";
 
 const PageLink: React.FC = () => {
 

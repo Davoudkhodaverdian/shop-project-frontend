@@ -1,5 +1,5 @@
 import React from "react";
-import { getStrapiImage } from "../../../app/lib/media";
+import { getStrapiImage } from "../../../fundamental/lib/media";
 import Buymanager from "./buymanager";
 
 interface Props { item: any }

@@ -3,8 +3,8 @@ import qs from "qs";
 
 export function getStrapiUrl(path = "") {
     // console.log(process.env)
-    // return `${process.env.NODE_ENV === 'development' ? 'http://localhost:1337' : process.env.NEXT_APP_STRAPI_API}${path}`;
-    return `https://strapi-shop-app.davoudkhtechone.ir${path}`;
+    return `${process.env.NODE_ENV === 'development' ? 'http://localhost:1337' : process.env.NEXT_APP_STRAPI_API}${path}`;
+    // return `https://strapi-shop-app.davoudkhtechone.ir${path}`;
 }
 
 export async function axiosAPI(path, method, urlParamsObject = {}, requestData = null, options = {}) {

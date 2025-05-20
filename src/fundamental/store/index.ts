@@ -18,7 +18,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ["auth","currentPerson","shoppingBag"] // only this item will be persisted
+  whitelist: ["auth","currentPerson","shoppingBag"] // only this items will be persisted
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

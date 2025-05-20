@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SliderSweaper from './sliderSweaper';
 import Products from './products';
+import {  useAppSelector } from '@/fundamental/hooks';
+import { useRouter } from 'next/navigation';
 
-const Home : React.FC = () => {
+const Home: React.FC = () => {
 
-    console.log("process.env.NODE_ENV:",process.env.NODE_ENV)
-    console.log("process.env.NEXT_APP_DOMAIN",process.env.NEXT_APP_DOMAIN)
+    const router = useRouter();
+    const token = useAppSelector((state) => state.auth.verifyToken);
 
+    if (token) {
+        router.push('/panel');
+        return <></>
+    }
+    
     return (
         <div>
-            <SliderSweaper/>
+            <SliderSweaper />
             <Products />
         </div>
 

@@ -1,11 +1,11 @@
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from '../../../../app/hooks';
-import { setAuth } from '../../../../app/store/auth';
-import { removeLoginToken } from '../../../../app/helpers/auth';
+import { useAppDispatch } from '../../../../fundamental/hooks';
+import { setAuth } from '../../../../fundamental/store/auth';
+import { removeLoginToken } from '../../../../fundamental/helpers/auth';
 import Router from 'next/router';
-import useAuth from '../../../../app/hooks/useAuth';
+import useAuth from '../../../../fundamental/hooks/useAuth';
 import { mutate } from 'swr';
 import { ClickAwayListener, MenuList } from '@mui/material';
 

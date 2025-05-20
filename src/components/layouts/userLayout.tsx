@@ -6,9 +6,9 @@ import Navbar from '../navbar';
 import { motion } from 'framer-motion';
 import Loading from '../shared/loading';
 import Router, { useRouter } from 'next/router';
-import useAuth from '../../app/hooks/useAuth';
-import { useAppSelector } from '../../app/hooks';
-import { RootState } from '../../app/store';
+import useAuth from '../../fundamental/hooks/useAuth';
+import { useAppSelector } from '../../fundamental/hooks';
+import { RootState } from '../../fundamental/store';
 
 interface Props {
     children: ReactNode

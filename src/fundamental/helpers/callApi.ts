@@ -3,12 +3,10 @@ import ValidationError from "../exceptions/validationError";
 
 const callApi = ()=> {
 
- 
     const axiosInstance = axios.create({
         // baseURL: process.env.NODE_ENV === 'development' ? "http://localhost:2381/api" : process.env.NEXT_APP_API,
         // baseURL: 'https://api.davoudkhtechone.ir/api',
         baseURL: 'http://localhost:27017/api',
-    
     });
     
     // Add a request interceptor

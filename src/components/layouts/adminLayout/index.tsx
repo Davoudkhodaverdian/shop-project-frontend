@@ -6,7 +6,7 @@ import Navbar from '../../navbar';
 import { motion } from 'framer-motion';
 import Loading from '../../shared/loading';
 import Router, { useRouter } from 'next/router';
-import useAuth from '../../../app/hooks/useAuth';
+import useAuth from '../../../fundamental/hooks/useAuth';
 import Dashbord from './dashboard';
 import Profile from '../../navbar/profile';
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import { useAppSelector, useAppDispatch } from '../../../../../app/hooks';
-import { RootState } from '../../../../../app/store';
-import { removeShoppingBag, setCurrentProducthoppingBag } from '../../../../../app/store/shoppingBagSlice';
+import { useAppSelector, useAppDispatch } from '../../../../../fundamental/hooks';
+import { RootState } from '../../../../../fundamental/store';
+import { removeShoppingBag, setCurrentProducthoppingBag } from '../../../../../fundamental/store/shoppingBagSlice';
 
 interface Props { item: any }
 

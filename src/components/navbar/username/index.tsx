@@ -1,5 +1,5 @@
-import { useAppSelector } from "../../../app/hooks";
-import { RootState } from "../../../app/store";
+import { useAppSelector } from "../../../fundamental/hooks";
+import { RootState } from "../../../fundamental/store";
 
 interface Props {
     isAuthentacted: boolean

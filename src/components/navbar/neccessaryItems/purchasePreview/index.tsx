@@ -3,7 +3,7 @@ import ShoppingBag from "../../shoppingBag";
 import Products from "./products";
 import { ClickAwayListener, MenuList } from "@mui/material";
 import Link from "next/link";
-import useAuth from "../../../../app/hooks/useAuth";
+import useAuth from "../../../../fundamental/hooks/useAuth";
 import PageLink from "./pageLink";
 import CalculatePrice from "./calculatePrice";
 

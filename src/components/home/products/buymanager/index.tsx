@@ -1,6 +1,6 @@
 import React from "react";
-import { useAppSelector } from '../../../../app/hooks';
-import { RootState } from "../../../../app/store";
+import { useAppSelector } from '../../../../fundamental/hooks';
+import { RootState } from "../../../../fundamental/store";
 import MinusPlus from "./minusPlus";
 import Add from "./add";
 import AddedDescription from "./addedDescrption";

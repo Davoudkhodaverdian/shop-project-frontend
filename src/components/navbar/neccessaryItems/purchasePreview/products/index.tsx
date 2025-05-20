@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { useAppSelector } from "../../../../../app/hooks";
-import { getStrapiImage } from "../../../../../app/lib/media";
-import { RootState } from "../../../../../app/store";
+import { useAppSelector } from "../../../../../fundamental/hooks";
+import { getStrapiImage } from "../../../../../fundamental/lib/media";
+import { RootState } from "../../../../../fundamental/store";
 import MinusPlus from "../../../../home/products/buymanager/minusPlus";
 import CalculatePrice from "../calculatePrice";
 import EmptyCart from "./emptyCart";
