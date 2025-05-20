@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import Person from '../../components/models/person';
+import Person from "../models/person";
+
 
 const initialState: Person[] = [];
 

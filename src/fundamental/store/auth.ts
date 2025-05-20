@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import Auth from "../../components/models/auth";
+import Auth from "../models/auth";
 
 const initialState: Auth = {
     verifyToken: '',
