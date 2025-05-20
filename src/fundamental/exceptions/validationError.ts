@@ -1,8 +1,8 @@
 export default class ValidationError {
 
-    messages: any
+    messages: object
 
-    constructor(messages: any) {
+    constructor(messages: object) {
         this.messages = messages;
     }
 }
