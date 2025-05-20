@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import "./vazirmatn-font-face.css";
+
 
 export const metadata: Metadata = {
   title: "فروشگاه زنجیره ای",
