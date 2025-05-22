@@ -5,11 +5,11 @@ export function corsMiddleware(req: NextRequest) {
     const host = req.headers.get("host") || "";
     const referer = req.headers.get("referer") ? new URL(req.headers.get("referer") as string).origin : "";
     const origin = req.headers.get("origin") || referer;
-    console.log({ origin, referer,host })
+    console.log({ origin, referer, host })
     const isSameOrigin = !req.headers.get("origin") && !referer && host;
     const allowedOrigins = [
         "http://localhost:3000",
-        "https://shop-project-tawny.vercel.app/",
+        process?.env?.NEXT_APP_DOMAIN,
     ];
 
     // Reject the request if the domain is not allowed
