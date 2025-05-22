@@ -9,7 +9,8 @@ export function corsMiddleware(req: NextRequest) {
     const isSameOrigin = !req.headers.get("origin") && !referer && host;
     const allowedOrigins = [
         "http://localhost:3000",
-        process?.env?.NEXT_APP_DOMAIN,
+        "https://shop-project-tawny.vercel.app",
+        // process?.env?.NEXT_APP_DOMAIN,
     ];
 
     // Reject the request if the domain is not allowed
