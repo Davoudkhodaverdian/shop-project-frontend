@@ -1,18 +1,18 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import personsReducer from './personsSlice';
-import languageReducer from './languageSlice';
 import shoppingBagReducer from './shoppingBagSlice';
 import productsReducer from './productsSlice';
+import postsReducer from './postsSlice';
 import authReducer from './auth';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
 
 const rootReducer = combineReducers({
   persons: personsReducer,
-  language: languageReducer,
   auth: authReducer,
   shoppingBag: shoppingBagReducer,
   products: productsReducer,
+  posts: postsReducer,
 })
 
 const persistConfig = {

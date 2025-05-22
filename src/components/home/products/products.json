@@ -1,0 +1,70 @@
+[
+  {
+    "id": 1,
+    "name": "گوشی سامسونگ گلکسی A54",
+    "slug": "samsung-galaxy-a54",
+    "description": "گوشی میان‌رده با صفحه‌نمایش Super AMOLED، دوربین قدرتمند و باتری ۵۰۰۰ میلی‌آمپر ساعتی.",
+    "price": 16200000,
+    "image": [
+      "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a54-5.jpg",
+      "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a54-6.jpg",
+      "https://fdn.gsmarena.com/imgroot/reviews/23/samsung-galaxy-a54/lifestyle/-1024w2/gsmarena_001.jpg",
+      "https://fdn.gsmarena.com/imgroot/reviews/23/samsung-galaxy-a54/lifestyle/-1024w2/gsmarena_002.jpg",
+      "https://fdn.gsmarena.com/imgroot/reviews/23/samsung-galaxy-a54/lifestyle/-1024w2/gsmarena_003.jpg",
+      "https://fdn.gsmarena.com/imgroot/reviews/23/samsung-galaxy-a54/lifestyle/-1024w2/gsmarena_004.jpg"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "گوشی شیائومی ردمی نوت 12 پرو",
+    "slug": "xiaomi-redmi-note-12-pro",
+    "description": "نمایشگر OLED با نرخ تازه‌سازی ۱۲۰ هرتز، پردازنده قدرتمند و شارژ سریع ۶۷ وات.",
+    "price": 12900000,
+    "image":  [
+      "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-12-pro-1.jpg",
+      "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-12-pro-5.jpg",
+      "https://fdn.gsmarena.com/imgroot/reviews/23/xiaomi-redmi-note-12-pro/lifestyle/-1024w2/gsmarena_004.jpg",
+      "https://fdn.gsmarena.com/imgroot/reviews/23/xiaomi-redmi-note-12-pro/lifestyle/-1024w2/gsmarena_006.jpg",
+      "",
+      ""
+    ]
+  },
+  {
+    "id": 3,
+    "name": "گوشی آیفون 13",
+    "slug": "iphone-13",
+    "description": "تجربه‌ای بی‌نقص از اکوسیستم اپل با تراشه A15 Bionic، دوربین دوگانه پیشرفته و کیفیت ساخت بالا.",
+    "price": 37500000,
+    "image": [
+     "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-13-01.jpg",
+     "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-13-2.jpg",
+     "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-13-5.jpg",
+     "https://fdn.gsmarena.com/imgroot/reviews/21/apple-iphone-13/lifestyle/-1024w2/gsmarena_001.jpg",
+     "https://fdn.gsmarena.com/imgroot/reviews/21/apple-iphone-13/lifestyle/-1024w2/gsmarena_004.jpg"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "گوشی سامسونگ گلکسی S23 Ultra",
+    "slug": "samsung-galaxy-s23-ultra",
+    "description": "پرچمدار سامسونگ با قلم S-Pen، دوربین ۲۰۰ مگاپیکسلی و صفحه‌نمایش خیره‌کننده Dynamic AMOLED.",
+    "price": 58900000,
+    "image": [
+      "https://image-us.samsung.com/us/smartphones/galaxy-s23-ultra/images/galaxy-s23-ultra-highlights-spec-camera.jpg",
+      "https://image-us.samsung.com/us/smartphones/galaxy-s23-ultra/hotfix/images/galaxy-s23-ultra-highlights-trade-in.jpg"
+      ]
+  },
+  {
+    "id": 5,
+    "name": "گوشی پوکو X5 پرو",
+    "slug": "poco-x5-pro",
+    "description": "قیمت مناسب با عملکرد بالا، مناسب برای بازی و استفاده روزمره با نمایشگر ۱۲۰ هرتز.",
+    "price": 10900000,
+    "image": [
+      "https://atlasdigi.ir/wp-content/uploads/2023/04/98987.webp",
+      "https://api2.zoomit.ir/media/652d0356eb21a6b54f5044c8?q=75&w=1920",
+      "https://www.technolife.com/wp-content/uploads/2023/03/P60-Art-Huawei.jpg",
+      "https://fdn2.gsmarena.com/vv/pics/huawei/huawei-p60-pro-1.jpg"
+     ]
+  }
+]
