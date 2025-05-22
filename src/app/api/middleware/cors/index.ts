@@ -9,7 +9,7 @@ export function corsMiddleware(req: NextRequest) {
     const isSameOrigin = !req.headers.get("origin") && !referer && host;
     const allowedOrigins = [
         "http://localhost:3000",
-        // "https://your-production-site.com/",
+        "https://shop-project-tawny.vercel.app/",
     ];
 
     // Reject the request if the domain is not allowed
