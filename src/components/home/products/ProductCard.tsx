@@ -13,7 +13,10 @@ const ProductCard: React.FC<Props> = ({ data }) => {
     <div className=" p-6 rounded  hover:shadow-lg flex flex-col justify-between  ">
       <div className="flex h-full justify-center items-center">
         <>
-          <Link className=" hover:scale-110 transition  " href={`/detailsProducts/${data?.slug}`}>
+          <Link className=" hover:scale-110 transition"
+            // href={`/detailsProducts/${data?.slug}`}
+            href={`/`}
+          >
             <img className="h-full max-h-[310px]" src={data?.image[0]} height={310} />
           </Link>
         </>
@@ -30,9 +33,9 @@ const ProductCard: React.FC<Props> = ({ data }) => {
           </svg>
         </div>
         <Buymanager item={data} />
-        <Link href={`/detailsProducts/${data?.slug}`} className='cursor-pointer p-1 rounded-sm text-white text-center bg-violet-500 drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300'>
+        {/* <Link href={`/detailsProducts/${data?.slug}`} className='cursor-pointer p-1 rounded-sm text-white text-center bg-violet-500 drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300'>
           جزئیات بیشتر ...
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

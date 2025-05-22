@@ -1,29 +1,26 @@
 import useSWR from "swr";
-import Cookies from "universal-cookie";
 import callApi from "../helpers/callApi";
-
-const cookies = new Cookies();
 
 const useAuth = () => {
 
     const { data, error, mutate } = useSWR('user-auth', () => {
 
         // httpOnly way
-        // return callApi().get('/user')
+        return callApi().get('/auth/user')
 
         // not httpOnly way
-        return callApi().get('/user', {
-            headers: {
-                authorization: cookies.get('shop-token')
-            }
-        })
+        // return callApi().get('/user', {
+        //     headers: {
+        //         authorization: cookies.get('SHPTN')
+        //     }
+        // })
     })
 
     if (error?.response?.status !== 403 && (data || error)) {
         // console.log(error);
     }
 
-    return { user: data?.data?.user, error, loading: !data && !error, mutate }
+    return { user: data?.data?.response?.user, error, loading: !data && !error, mutate }
 
 }
 

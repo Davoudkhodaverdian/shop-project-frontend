@@ -1,48 +1,31 @@
-import axios from "axios";
-import ValidationError from "../exceptions/validationError";
+import axios, { AxiosInstance } from "axios";
 
-const callApi = ()=> {
+const callApi = () => {
 
-    const axiosInstance = axios.create({
+    const axiosInstance: AxiosInstance = axios.create({
         // baseURL: process.env.NODE_ENV === 'development' ? "http://localhost:2381/api" : process.env.NEXT_APP_API,
         // baseURL: 'https://api.davoudkhtechone.ir/api',
-        baseURL: 'http://localhost:27017/api',
+        baseURL: 'http://localhost:3000/api',
     });
-    
+
     // Add a request interceptor
     axiosInstance.interceptors.request.use((config) => {
         // Do something before request is sent
-        config.withCredentials = false // for httpOnly
+        config.withCredentials = true // for httpOnly
         return config;
     }, (error) => {
         // Do something with request error
-        throw error;
+        throw error?.response?.data;
     });
-    
+
     // Add a response interceptor
     axiosInstance.interceptors.response.use((response) => {
         // Any status code that lie within the range of 2xx cause this function to trigger
         // Do something with response data
         return response;
     }, (error) => {
-        console.log(error);
-        const res = error?.response;
-         
-        if (res) {
-
-            if (res.status === 422) {
-                if (res.data.errors) {
-                    // validation errors from server
-                    throw new ValidationError(res.data.errors)
-                    
-                } else {
-                    // repetitive error
-                    throw res.data.error;
-                }
-
-            }
-        }
-        throw error;
+        // console.log(error?.response?.data);
+        throw error?.response?.data;
     });
 
     return axiosInstance;

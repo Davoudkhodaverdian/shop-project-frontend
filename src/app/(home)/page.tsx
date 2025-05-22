@@ -1,12 +1,14 @@
+"use client"
 import Home from "@/components/home";
+// import { useRouter } from 'next/navigation';
+import MainLayout from '@/components/layouts/mainLayout';
 import InitialLayout from "@/components/layouts/initialLayout";
 
-export default async function HomePage() {
-  const data = await fetch('https://api.vercel.app/blog')
-  const posts = await data.json();
+export default function HomePage() {
+
   return (
     <InitialLayout>
-      <Home />
+      <MainLayout><Home /></MainLayout>
     </InitialLayout>
-  );
+  )
 }
