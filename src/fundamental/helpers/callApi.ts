@@ -4,7 +4,7 @@ const callApi = () => {
 
     const axiosInstance: AxiosInstance = axios.create({
         // baseURL: process.env.NODE_ENV === 'development' ? "http://localhost:2381/api" : process.env.NEXT_APP_API,
-        baseURL: 'https://shop-project-tawny.vercel.app/',
+        baseURL: 'https://shop-project-tawny.vercel.app/api',
         // baseURL: 'http://localhost:3000/api',
     });
 
