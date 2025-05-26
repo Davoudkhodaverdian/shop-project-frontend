@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 const AddedDescription: React.FC = () => {
 
@@ -11,7 +12,7 @@ const AddedDescription: React.FC = () => {
             </div>
             <div className="flex flex-col">
                 <div className="flex justify-between">
-                    <button className="p-1 m-1 rounded-sm  text-center border border-violet-500 text-violet-500 drop-shadow hover:text-violet-600 active:text-violet-700 focus:ring">مشاهده سبد خرید</button>
+                    <Link href={'/cart'} className="p-1 m-1 rounded-sm  text-center border border-violet-500 text-violet-500 drop-shadow hover:text-violet-600 active:text-violet-700 focus:ring">مشاهده سبد خرید</Link>
                 </div>
             </div>
         </div>
