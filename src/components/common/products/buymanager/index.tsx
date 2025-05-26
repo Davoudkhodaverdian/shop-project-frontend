@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { useAppSelector } from '../../../../fundamental/hooks';
 import { RootState } from "../../../../fundamental/store";

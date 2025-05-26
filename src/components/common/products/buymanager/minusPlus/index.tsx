@@ -8,12 +8,12 @@ interface Props { item: any }
 const MinusPlus: React.FC<Props> = ({ item }) => {
 
     const shoppingBag = useAppSelector((state: RootState) => state.shoppingBag);
-    const number = !!shoppingBag.find(i => i.id === item.id) ? shoppingBag.find(i => i.id === item.id).number : 0;
+    const number = !!shoppingBag.find(i => i.id === item.id) ? shoppingBag.find(i => i.id === item.id)?.number : 0;
     const dispatch = useAppDispatch();
-    const HandleAddShoppingBag = () => { dispatch(setCurrentProducthoppingBag({ ...item, number: number + 1 })) }
+    const HandleAddShoppingBag = () => { dispatch(setCurrentProducthoppingBag({ ...item, number: (number as number) + 1 })) }
     const HandleRemoveShoppingBag = () => {
-        dispatch(setCurrentProducthoppingBag({ ...item, number: number - 1 }))
-        if (number - 1 === 0) dispatch(removeShoppingBag(item.id));
+        dispatch(setCurrentProducthoppingBag({ ...item, number: (number as number) - 1 }))
+        if ((number as number) - 1 === 0) dispatch(removeShoppingBag(item.id));
     }
     return (
         <div className="flex items-center justify-center border rounded-md my-2">

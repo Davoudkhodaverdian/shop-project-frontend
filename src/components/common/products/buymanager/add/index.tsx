@@ -13,9 +13,9 @@ const Add: React.FC<Props> = ({ item }) => {
     }
     
     return (
-        <div className="pt-2">
+        <div className="py-3">
             <button onClick={HandleShoppingBag}
-                className='w-full p-1  rounded-sm text-white text-center bg-violet-500 drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300'
+                className='cursor-pointer w-full p-1  rounded-sm text-white text-center bg-violet-500 drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300'
                 type="button">
                 افزودن به سبد خرید
             </button>

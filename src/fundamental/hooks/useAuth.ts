@@ -16,9 +16,6 @@ const useAuth = () => {
         // })
     })
 
-    if (error?.response?.status !== 403 && (data || error)) {
-        // console.log(error);
-    }
 
     return { user: data?.data?.response?.user, error, loading: !data && !error, mutate }
 

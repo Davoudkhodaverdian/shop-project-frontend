@@ -1,17 +1,17 @@
-'use client';
+
 import React from 'react';
 import SliderSweaper from './sliderSweaper';
-import Products from './products';
+import Product from '@/fundamental/models/product';
+import Products from '@/components/common/products';
 
-const Home: React.FC = () => {
+const Home: React.FC<{ products: Product[] }> = ({ products }) => {
 
-
+    console.log(products)
     return (
-        <div>
+        <main>
             <SliderSweaper />
-            <Products />
-        </div>
-
+            <Products products={products} />
+        </main>
     )
 }
 

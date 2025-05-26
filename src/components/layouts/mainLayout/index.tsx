@@ -1,11 +1,14 @@
+'use client';
 import React, { ReactNode, useEffect } from 'react';
 import BackToTop from '../../common/backToTop';
 import { motion } from 'framer-motion';
 import useAuth from '../../../fundamental/hooks/useAuth';
 // import { useRouter } from 'next/navigation';
-import Loading from '../../common/loading';
+// import Loading from '../../common/loading';
 import Navbar from '../../common/navbar';
 import Footer from '@/components/common/footer';
+import { useAppDispatch } from '@/fundamental/hooks';
+import { setAuth } from '@/fundamental/store/auth';
 
 interface Props {
     children: ReactNode
@@ -15,15 +18,16 @@ const MainLayout: React.FC<Props> = ({ children }) => {
 
     // managing auth with swr start
     const { user, loading, error } = useAuth();
-    
+    const dispatch = useAppDispatch();
     // const router = useRouter();
-    console.log({user, loading, error})
+    console.log({ user, loading, error })
     useEffect(() => {
-       
-        if (user) {
+
+        if (user || !loading) {
             // router.replace("/panel");
+            dispatch(setAuth({ user, loading: false }))
         }
-    }, [user]);
+    }, [user, loading]);
 
     // managing auth with swr end
 
@@ -41,15 +45,15 @@ const MainLayout: React.FC<Props> = ({ children }) => {
     //if (loading) return <Loading justSpinner={true} fullPage={true} />
     // loading for render process end
     // managing auth with redux end
-    if (loading) return <Loading justSpinner={true} fullPage={true} />
+    // if (loading) return <Loading justSpinner={true} fullPage={true} />
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1, }, }}>
-            <div dir='rtl'>
-                <Navbar isAuthentacted={!!user} />
+            <>
+                <Navbar />
                 {children}
                 <Footer />
                 <BackToTop />
-            </div>
+            </>
         </motion.div>
     )
 }

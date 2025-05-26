@@ -1,19 +1,21 @@
 import Link from "next/link"
 import Profile from "../profile"
+import { useAppSelector } from "@/fundamental/hooks";
+import Loading from "../../loading";
 
-interface Props {
-    isAuthentacted: boolean
-}
 
-const MainItems: React.FC<Props> = ({ isAuthentacted }) => {
 
+const MainItems: React.FC = () => {
+    const isAuthentacted = !!useAppSelector((state) => state.auth.user);
+    const loading = useAppSelector((state) => state.auth.loading);
     return (
         <div className=''>
             <ul className='flex'>
                 <li className='p-1 py-3'>فروشگاه زنجیره ای</li>
-                <Link href="/"><li className='p-1 cursor-pointer py-3 hover-navbar'>صفحه اصلی</li></Link>
+                <Link className='hidden md:block' href="/"><li className='p-1 cursor-pointer py-3 hover-navbar'>صفحه اصلی</li></Link>
+                <Link  className='hidden md:block' href="/products"><li className='p-1 cursor-pointer py-3 hover-navbar'>محصولات</li></Link>
                 {
-                    isAuthentacted ?
+                  loading ? <Loading  justSpinner={true} /> :  isAuthentacted ?
 
                         <li className='p-1 flex justify-center items-center'><Profile /></li>
                         :

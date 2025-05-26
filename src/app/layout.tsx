@@ -1,5 +1,6 @@
 
 import "./globals.css";
+import InitialLayout from "@/components/layouts/initialLayout";
 
 export default function RootLayout({
   children,
@@ -7,11 +8,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fa-IR" >
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body>{children}</body>
+      <body dir="rtl">
+        <InitialLayout>{children}</InitialLayout>
+      </body>
     </html>
   );
 }

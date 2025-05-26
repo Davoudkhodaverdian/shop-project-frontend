@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { useAppSelector } from "@/fundamental/hooks";
 import { RootState } from "@/fundamental/store";
-import MinusPlus from "@/components/home/products/buymanager/minusPlus";
+
 import CalculatePrice from "../calculatePrice";
 import EmptyCart from "./emptyCart";
+import MinusPlus from "@/components/common/products/buymanager/minusPlus";
 
 const Products: React.FC = () => {
 
@@ -25,7 +26,7 @@ const Products: React.FC = () => {
                             {
                                 shoppingBag?.map(item => (
                                     <li key={item.id} className="flex py-3 border-b">
-                                        <Link href={`/detailsProducts/${item.slug}`}>
+                                        <Link href={`/products/${item.slug}`}>
                                             <div className=" overflow-hidden">
                                                 <img className="max-h-[100px] hover:scale-110 transition cursor-pointer" src={item.image[0]} />
                                             </div>

@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import Auth from "../models/auth";
+import Person from "../models/person";
 
 const initialState: Auth = {
-    verifyToken: '',
     user: null,
-    newLogin: false
+    loading: true
 }
 
 const authSlice = createSlice({
@@ -15,12 +15,13 @@ const authSlice = createSlice({
             state = action.payload;
             return state;
         },
-        clearNewLogin: (state)=>{
-            state.newLogin = false
-        }
+        setUser: (state, action: PayloadAction<Person>) => {
+            state.user = action.payload;
+            return state;
+        },
     }
 })
 
-export const { setAuth,clearNewLogin } = authSlice.actions;
+export const { setAuth, setUser } = authSlice.actions;
 
 export default authSlice.reducer;

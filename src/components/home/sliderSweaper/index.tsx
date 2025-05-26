@@ -1,5 +1,5 @@
+"use client";
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import ImageData from './imageData.json';
 // Import Swiper styles
 import 'swiper/css';

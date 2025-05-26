@@ -2,7 +2,7 @@ import React, { ReactNode, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import useAuth from '@/fundamental/hooks/useAuth';
 import { useRouter } from 'next/navigation';
-import Loading from '@/components/common/loading';
+// import Loading from '@/components/common/loading';
 import Navbar from '@/components/common/navbar';
 import BackToTop from '@/components/common/backToTop';
 import Footer from '@/components/common/footer';
@@ -13,7 +13,7 @@ interface Props {
 const GuestLayout: React.FC<Props> = ({ children }) => {
 
     // managing auth with swr start
-    const { user, loading, error } = useAuth();
+    const { user } = useAuth();
    
     const router = useRouter();
     useEffect(() => {
@@ -39,16 +39,16 @@ const GuestLayout: React.FC<Props> = ({ children }) => {
     // managing auth with redux end
 
 
-    if (loading) return <Loading justSpinner={true} fullPage={true} />
+    // if (loading) return <Loading justSpinner={true} fullPage={true} />
     if (user) return <></>;
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1, }, }}>
-            <div dir='rtl'>
-                <Navbar isAuthentacted={false} />
+            <>
+                <Navbar  />
                 {children}
                 <Footer />
                 <BackToTop />
-            </div>
+            </>
         </motion.div>
     )
 }

@@ -17,10 +17,10 @@ const DropdownMenu: React.FC<Props> = ({ children }) => {
     const exit = async () => {
         setOpen(false);
         // logout with redux
-        // dispatch(setAuth({ verifyToken: '', user: null, newLogin: false }));
+        // dispatch(setAuth({ user: null }));
         // logout with swr
         await removeLoginToken();
-        await mutate({ verifyToken: '', user: null, newLogin: false } as any)
+        await mutate({ user: null } as any)
         // await Router.push('/');
 
     }
@@ -66,7 +66,7 @@ const DropdownMenu: React.FC<Props> = ({ children }) => {
             </div>
             <ClickAwayListener onClickAway={handleClose}>
                 <MenuList className='relative' autoFocusItem={open} onKeyDown={handleListKeyDown}>
-                    <div className={`${open ? "transform opacity-100 z-10" : "transform opacity-0 z-[-1]"} transition-all absolute right-[-97px] mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-sm bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}>
+                    <div className={`${open ? "transform opacity-100 z-10" : "transform opacity-0 z-[-1]"} transition-all absolute right-[-97px] mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-sm bg-white shadow-lg border border-gray-200 rounded-lg shadow-sm hover:shadow-lg focus:outline-none`}>
                         <ul className='flex flex-col'>
                             <Link href="/panel">
                                 <li className='px-2 cursor-pointer py-3 hover-navbar flex'>پنل کاربری</li>

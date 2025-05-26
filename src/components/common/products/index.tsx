@@ -1,15 +1,19 @@
-import React from "react";
+"use client";
+import React, { useRef } from "react";
 import ProductCard from "./ProductCard";
 // import { useAppSelector } from '../../../fundamental/hooks'
 // import { RootState } from "../../../fundamental/store";
-import products from "./products.json";
 
-const Products = () => {
+import Product from "@/fundamental/models/product";
+import PageManagement from "./pageManagement";
+
+const Products: React.FC<{ products: Product[] }> = ({ products }) => {
 
   // const products = useAppSelector((state: RootState) => state.products);
-
+  console.log({ products });
+  const pageTopRef = useRef<HTMLDivElement | null>(null);
   return (
-    <section className="bg-white py-8">
+    <section className="mx-[20px] bg-white py-8" ref={pageTopRef}>
       <div className="container mx-auto flex items-center flex-col pt-4 pb-12 ">
         <nav id="store" className="w-full top-0 px-6 py-1">
           <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
@@ -56,6 +60,7 @@ const Products = () => {
         <div className="w-full grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {(products).map((data) => (<ProductCard key={data?.id} data={{ ...data }} />))}
         </div>
+        <PageManagement products={products} pageTopRef={pageTopRef} />
       </div>
     </section>
   );

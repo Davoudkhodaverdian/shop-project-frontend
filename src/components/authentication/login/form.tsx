@@ -83,11 +83,11 @@ const FormComponent: React.FC = () => {
                         بازگشت
                     </button>
                 </Link>
-                <button type="submit" name="submit"
+                <button type="submit" name="submit" disabled={loading}
                     className="transition-all px-3 py-1 rounded text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300  mx-1">
                     ورود
                 </button>
-                {loading && <Loading text={"در حال ارسال اطلاعات ..."} />}
+                {loading && <div className='py-5'><Loading text={"در حال ارسال اطلاعات ..."} /></div> }
                 <Link href="/auth/register" className='hover:text-blue-700 transition'><div className=' mt-4'>قبلا ثبت نام نکرده اید</div></Link>
             </Form>
         </Formik>
