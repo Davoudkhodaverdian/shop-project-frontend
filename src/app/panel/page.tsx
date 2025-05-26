@@ -1,6 +1,6 @@
 import MainLayout from "@/components/layouts/mainLayout";
 
-export default async function CartPage() {
+export default async function PanelPage() {
 
   return (
     <MainLayout>
