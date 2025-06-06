@@ -5,6 +5,7 @@ import { RootState } from "@/fundamental/store";
 import CalculatePrice from "../calculatePrice";
 import EmptyCart from "./emptyCart";
 import MinusPlus from "@/components/common/products/buymanager/minusPlus";
+import addComma from "@/fundamental/addComma";
 
 const Products: React.FC = () => {
 
@@ -25,7 +26,7 @@ const Products: React.FC = () => {
                         <ul className="p-5 max-h-[400px]  overflow-y-auto shadow-inner ">
                             {
                                 shoppingBag?.map(item => (
-                                    <li key={item.id} className="flex py-3 border-b">
+                                    <li key={item.id} className=" py-3  ">
                                         <Link href={`/products/${item.slug}`}>
                                             <div className=" overflow-hidden">
                                                 <img className="max-h-[100px] hover:scale-110 transition cursor-pointer" src={item.image[0]} />
@@ -36,10 +37,13 @@ const Products: React.FC = () => {
                                                 {item.name}
                                             </div>
                                             <div className="mt-2">
-                                                {item.price} {'تومان'}
+                                                {addComma(item.price)} {'تومان'}
                                             </div>
-                                            <MinusPlus item={item} />
+                                            <div className="flex flex-col  items-start border-b border-gray-500">
+                                                <MinusPlus item={item} />
+                                            </div>
                                         </div>
+
                                     </li>
                                 ))
                             }

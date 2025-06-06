@@ -29,7 +29,7 @@ const DrawerMenuMaterialUi: React.FC = () => {
         anchor={'right' as Anchor}
         open={state}
         onClose={toggleDrawer(false)}
-        className='lg:hidden'
+        className='md:hidden'
         disableScrollLock={true}
       >
         <div className={`h-[100vh] w-64 flex flex-col justify-between`}>
@@ -41,7 +41,7 @@ const DrawerMenuMaterialUi: React.FC = () => {
             <ul className=''>
               <Link className='' href="/"><li className='p-1 cursor-pointer py-3 hover-navbar'>صفحه اصلی</li></Link>
               <Link className='' href="/products"><li className='p-1 cursor-pointer py-3 hover-navbar'>محصولات</li></Link>
-              <li className=''><NecessaryItems /></li>
+              <li className='p-1 py-3 '><NecessaryItems /></li>
             </ul>
 
           </div>

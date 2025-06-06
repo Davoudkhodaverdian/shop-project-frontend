@@ -29,14 +29,14 @@ const PurchasePreview: React.FC = () => {
 
     return (
         <>
-            <li onClick={handleToggle}  ref={anchorRef}
+            <div onClick={handleToggle} ref={anchorRef}
                 className='cursor-pointer flex items-center hover-navbar'>
                 <ShoppingBag />
-            </li>
+            </div>
             <ClickAwayListener onClickAway={handleClose}>
-                <MenuList className='' autoFocusItem={open}
+                <MenuList className='' autoFocusItem={open} style={{ display: !open ? 'none' : '' }}
                 >
-                    <div className={`${open ? "transform opacity-100 z-10" : "transform opacity-0 z-[-1]"} left-0 w-full md:w-96  transition-all absolute  mt-2 origin-top-right divide-y divide-gray-100 rounded-sm bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg p-1 md:top-7 md:left-0 top-0 `}>
+                    <div className={`${open ? "transform opacity-100 z-10" : "transform opacity-0 z-[-1] h-0"} left-0 w-full md:w-96  transition-all absolute  mt-2 origin-top-right divide-y divide-gray-100 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg p-1 md:top-7 top-0 `}>
                         <PageLink />
                         <Products />
                     </div>

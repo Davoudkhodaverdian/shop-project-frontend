@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useAppSelector } from "@/fundamental/hooks";
 import { RootState } from "@/fundamental/store";
+import addComma from "@/fundamental/addComma";
 
 const CalculatePrice: React.FC = () => {
     const shoppingBag = useAppSelector((state: RootState) => state.shoppingBag);
@@ -14,7 +15,7 @@ const CalculatePrice: React.FC = () => {
 
     return (
         <div className="p-3">
-            <div>مبلغ قابل پرداخت {price} تومان</div>
+            <div>مبلغ قابل پرداخت {addComma(price)} تومان</div>
             <div className="mt-8">
             <Link href={'/cart'} className="transition-all p-3  rounded text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300  mx-1">
                     ثبت سفارش
