@@ -1,8 +1,8 @@
 import React from "react";
 import ShoppingBag from "../../shoppingBag";
-import Products from "./products";
 import { ClickAwayListener, MenuList } from "@mui/material";
 import PageLink from "./pageLink";
+import SelectedProducts from "../../../selectedProducts";
 
 const PurchasePreview: React.FC = () => {
 
@@ -38,7 +38,7 @@ const PurchasePreview: React.FC = () => {
                 >
                     <div className={`${open ? "transform opacity-100 z-10" : "transform opacity-0 z-[-1] h-0"} left-0 w-full md:w-96  transition-all absolute  mt-2 origin-top-right divide-y divide-gray-100 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg p-1 md:top-7 top-0 `}>
                         <PageLink />
-                        <Products />
+                        <SelectedProducts />
                     </div>
                 </MenuList>
             </ClickAwayListener>

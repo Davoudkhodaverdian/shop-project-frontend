@@ -2,12 +2,13 @@ import Link from "next/link";
 import { useAppSelector } from "@/fundamental/hooks";
 import { RootState } from "@/fundamental/store";
 
-import CalculatePrice from "../calculatePrice";
-import EmptyCart from "./emptyCart";
+import CalculatePrice from "../navbar/neccessaryItems/purchasePreview/calculatePrice";
+
 import MinusPlus from "@/components/common/products/buymanager/minusPlus";
 import addComma from "@/fundamental/addComma";
+import EmptyCart from "./emptyCart";
 
-const Products: React.FC = () => {
+const SelectedProducts: React.FC = () => {
 
     const shoppingBag = useAppSelector((state: RootState) => state.shoppingBag);
     const getNumberShoppingBag = (shoppingBag: any) => {
@@ -55,4 +56,4 @@ const Products: React.FC = () => {
 
     )
 }
-export default Products;
+export default SelectedProducts;

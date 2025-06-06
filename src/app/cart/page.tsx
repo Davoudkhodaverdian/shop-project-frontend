@@ -1,10 +1,11 @@
+import Cart from "@/components/cart";
 import MainLayout from "@/components/layouts/mainLayout";
 
 export default async function CartPage() {
 
   return (
     <MainLayout>
-      <main className="px-5 py-20">متاسفانه این صفحه در دست توسعه میباشد</main>
+      <Cart />
     </MainLayout>
   )
 }

@@ -16,7 +16,7 @@ const Navbar: React.FC= () => {
                 <div className='flex justify-between'>
                     <MainItems />
                     <DrawerMenuMaterialUi />
-                    <div  className='hidden md:block'><NecessaryItems /></div>
+                    <div  className='hidden md:flex items-center  '><NecessaryItems /></div>
                 </div>
             </div>
             <Username />
